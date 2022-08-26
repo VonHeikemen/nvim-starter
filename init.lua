@@ -25,21 +25,21 @@ vim.g.netrw_winsize = 30
 vim.g.mapleader = ' '
 
 -- Shortcuts
-vim.keymap.set('', '<Leader>h', '^') 
-vim.keymap.set('', '<Leader>l', 'g_')
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^') 
+vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
 -- Basic clipboard interaction
-vim.keymap.set('', 'cp', '"+y')
-vim.keymap.set('', 'cv', '"+p')
+vim.keymap.set({'n', 'x', 'o'}, 'cp', '"+y')
+vim.keymap.set({'n', 'x', 'o'}, 'cv', '"+p')
 
 -- Commands
-vim.keymap.set('n', '<Leader>w', '<cmd>write<cr>')
-vim.keymap.set('n', '<Leader>bq', '<cmd>bdelete<cr>')
-vim.keymap.set('n', '<Leader>bl', '<cmd>buffer #<cr>')
-vim.keymap.set('n', '<Leader>bb', '<cmd>buffers<cr>:buffer<Space>')
-vim.keymap.set('n', '<Leader>e', '<cmd>Lexplore %:p:h<cr>')
-vim.keymap.set('n', '<Leader>E', '<cmd>Lexplore<cr>')
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
+vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')
+vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
+vim.keymap.set('n', '<leader><space>', '<cmd>buffers<cr>:buffer<Space>')
+vim.keymap.set('n', '<leader>e', '<cmd>Lexplore %:p:h<cr>')
+vim.keymap.set('n', '<leader>E', '<cmd>Lexplore<cr>')
 
 local function netrw_mapping()
   local bufmap = function(lhs, rhs)
