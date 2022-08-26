@@ -22,7 +22,7 @@ vim.opt.expandtab = false
 vim.g.mapleader = ' '
 
 -- Shortcuts
-vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^') 
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^')
 vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'nnoremap <buffer> q <cmd>quit<cr>'
 })
 
+
 -- ========================================================================== --
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
@@ -102,6 +103,7 @@ if install_plugins then
   return
 end
 
+
 -- ========================================================================== --
 -- ==                         PLUGIN CONFIGURATION                         == --
 -- ========================================================================== --
@@ -109,7 +111,6 @@ end
 ---
 -- Colorscheme
 ---
-
 vim.opt.termguicolors = true
 vim.cmd('colorscheme onedark')
 
@@ -117,7 +118,6 @@ vim.cmd('colorscheme onedark')
 ---
 -- lualine.nvim (statusline)
 ---
-
 vim.opt.showmode = false
 require('lualine').setup({
   options = {
