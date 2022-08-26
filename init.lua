@@ -18,7 +18,7 @@ vim.opt.signcolumn = 'yes'
 vim.g.mapleader = ' '
 
 -- Shortcuts
-vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^') 
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^')
 vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
@@ -282,7 +282,7 @@ require('nvim-tree').setup({
 
     -- :help nvim-tree.api
     local api = require('nvim-tree.api')
-   
+
     bufmap('L', api.node.open.edit, 'Expand folder or go to file')
     bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
   end
