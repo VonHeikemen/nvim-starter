@@ -18,7 +18,7 @@ vim.opt.signcolumn = 'yes'
 vim.g.mapleader = ' '
 
 -- Shortcuts
-vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^') 
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^')
 vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
@@ -118,19 +118,19 @@ require('packer').startup(function(use)
   use {'editorconfig/editorconfig-vim'}
 
   -- LSP support
-  use {'neovim/nvim-lspconfig'},
+  use {'neovim/nvim-lspconfig'}
 
   -- Autocomplete
-  use {'hrsh7th/nvim-cmp'},
-  use {'hrsh7th/cmp-buffer'},
-  use {'hrsh7th/cmp-path'},
-  use {'saadparwaiz1/cmp_luasnip'},
-  use {'hrsh7th/cmp-nvim-lsp'},
-  use {'hrsh7th/cmp-nvim-lua'},
+  use {'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-buffer'}
+  use {'hrsh7th/cmp-path'}
+  use {'saadparwaiz1/cmp_luasnip'}
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'hrsh7th/cmp-nvim-lua'}
 
   -- Snippets
-  use {'L3MON4D3/LuaSnip'},
-  use {'rafamadriz/friendly-snippets'},
+  use {'L3MON4D3/LuaSnip'}
+  use {'rafamadriz/friendly-snippets'}
 
   if install_plugins then
     require('packer').sync()
@@ -297,7 +297,7 @@ require('nvim-tree').setup({
 
     -- :help nvim-tree.api
     local api = require('nvim-tree.api')
-   
+
     bufmap('L', api.node.open.edit, 'Expand folder or go to file')
     bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
   end
@@ -499,7 +499,7 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 
---- 
+---
 -- LSP servers
 ---
 -- See :help lspconfig-setup
