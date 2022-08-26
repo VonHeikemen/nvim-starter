@@ -33,6 +33,8 @@ nvim -c 'edit $MYVIMRC'
 
 ## Keybindings
 
+Leader key: `Space`.
+
 | Mode    | Key    | Action    |
 | --- | --- | --- |
 | Normal  | `<leader>h` | Go to first non empty character in line. |
