@@ -2,12 +2,12 @@
 
 Base configuration for Neovim. Meant to be somewhat unopinionated but small. The plugin manager ([packer.nvim](https://github.com/wbthomason/packer.nvim)) will be downloaded along side all plugins the first time you open Neovim.
 
-Autocompletion and "code intellisense" is omitted on this configuration, so you can do your research and add the one you think is best for your workflow.
-
 All the code in this configuration is explained here:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
+
+Autocompletion and "code intellisense" is omitted on this configuration, so you can do your research and add the one you think is best for your workflow.
 
 ## Requirements
 
@@ -45,21 +45,21 @@ Leader key: `Space`.
 
 | Mode | Key | Action |
 | --- | --- | --- |
-| Normal  | `<leader>h` | Go to first non empty character in line. |
-| Normal  | `<leader>l` | Go to last non empty character in line. |
-| Normal  | `<leader>a` | Select all text. |
-| Normal  | `cp` | Copy selected text to clipboard. |
-| Normal  | `cv` | Paste clipboard content. |
-| Normal  | `<leader>w` | Save file. |
-| Normal  | `<leader>bq` | Close current buffer. |
-| Normal  | `<leader>bl` | Go to last active buffer. |
-| Normal  | `<leader>?` | Search oldfiles history. |
-| Normal  | `<leader><space>` | Search open buffers. |
-| Normal  | `<leader>ff` | Find file in current working directory. |
-| Normal  | `<leader>fg` | Search pattern in current working directory. Interactive "grep search". |
-| Normal  | `<leader>fd` | Search diagnostics in current file. |
-| Normal  | `<leader>fs` | Search pattern in current file. |
-| Normal  | `<leader>e` | Open file explorer. |
+| Normal | `<leader>h` | Go to first non empty character in line. |
+| Normal | `<leader>l` | Go to last non empty character in line. |
+| Normal | `<leader>a` | Select all text. |
+| Normal | `cp` | Copy selected text to clipboard. |
+| Normal | `cv` | Paste clipboard content. |
+| Normal | `<leader>w` | Save file. |
+| Normal | `<leader>bq` | Close current buffer. |
+| Normal | `<leader>bl` | Go to last active buffer. |
+| Normal | `<leader>?` | Search oldfiles history. |
+| Normal | `<leader><space>` | Search open buffers. |
+| Normal | `<leader>ff` | Find file in current working directory. |
+| Normal | `<leader>fg` | Search pattern in current working directory. Interactive "grep search". |
+| Normal | `<leader>fd` | Search diagnostics in current file. |
+| Normal | `<leader>fs` | Search pattern in current file. |
+| Normal | `<leader>e` | Open file explorer. |
 
 ## Plugin list
 
@@ -87,5 +87,5 @@ Leader key: `Space`.
 | [vim-repeat](https://github.com/tpope/vim-repeat) | Add "repeat" support for plugins. |
 | [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
-| [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editoriconfig](https://editorconfig.org/) file. |
+| [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editorconfig](https://editorconfig.org/) file. |
 
