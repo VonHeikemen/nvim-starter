@@ -64,7 +64,7 @@ Leader key: `Space`.
 ## Plugin list
 
 | Name | Description  |
-| --- | --- | 
+| --- | --- |
 | [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
