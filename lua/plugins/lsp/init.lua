@@ -94,8 +94,8 @@ require('mason-lspconfig').setup_handlers({
       }
     })
   end,
-  ['sumenko_lua'] = function()
-    require('plugins.lsp.sumenko_lua')
+  ['sumneko_lua'] = function()
+    require('plugins.lsp.sumneko_lua')
   end
 })
 
