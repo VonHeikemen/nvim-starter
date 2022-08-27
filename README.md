@@ -1,8 +1,10 @@
 # Neovim Starter
 
-Base configuration for Neovim. The plugin manager ([packer.nvim](https://github.com/wbthomason/packer.nvim)) will be downloaded along side all plugins the first time you open Neovim.
+Base configuration for Neovim. For those looking to make Neovim their new main editor. Here you'll find a popular combination of plugin to make your experience a little bit better.
 
-All the code in this configuration is explained here:
+A few things have been configured to resemble more "traditional" text editors. There are things like file explorer with tree style view, list open files in tabs, git integration and autocompletion with "code intellisense". It will not be as powerful as an IDE but it'll provide a good experience.
+
+All the code in this configuration is explained in this series of articles:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
@@ -36,7 +38,7 @@ nvim -c 'edit $MYVIMRC'
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Restart Neovim. Wait until plugins are installed then restart Neovim again.
+* Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
 
 ## Keybindings
 
@@ -93,7 +95,7 @@ Leader key: `Space`.
 ## Plugin list
 
 | Name | Description  |
-| --- | --- | 
+| --- | --- |
 | [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
