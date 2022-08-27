@@ -1,8 +1,10 @@
 # Neovim Starter
 
-Base configuration for Neovim. Meant to be somewhat unopinionated but small. The plugin manager ([packer.nvim](https://github.com/wbthomason/packer.nvim)) will be downloaded along side all plugins the first time you open Neovim.
+Base configuration for Neovim. For those looking to make Neovim their new main editor. Here you'll find a popular combination of plugin to make your experience a little bit better.
 
-All the code in this configuration is explained here:
+A few things have been configured to resemble more "traditional" text editors. There are things like file explorer with "tree style" view, list open files in tabs, git integration and autocompletion with "code intellisense". It will not be as powerful as an IDE but it'll provide a good experience.
+
+All the code in this configuration is explained in this series of articles:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
@@ -15,9 +17,7 @@ All the code in this configuration is explained here:
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
 * [make](https://www.gnu.org/software/make/).
 * [tsserver](https://github.com/theia-ide/typescript-language-server).
-* [eslint](https://github.com/hrsh7th/vscode-langservers-extracted).
-* [vscode-html-language-server](https://github.com/hrsh7th/vscode-langservers-extracted).
-* [vscode-css-language-server](https://github.com/hrsh7th/vscode-langservers-extracted).
+* [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted).
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
@@ -40,7 +40,15 @@ nvim -c 'edit $MYVIMRC'
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Restart Neovim. Wait until plugins are installed then restart Neovim again.
+* Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
+
+### Plugins directory
+
+Your plugins will be installed in a separate directory from your configuration. The location of this directory depends on your operating system and environment variables, so you'll need to execute this command to know where that is.
+
+```sh
+nvim --headless -c 'echo stdpath("data") . "/site/pack/packer" | quit'
+```
 
 ## Keybindings
 
@@ -97,7 +105,7 @@ Leader key: `Space`.
 ## Plugin list
 
 | Name | Description  |
-| --- | --- | 
+| --- | --- |
 | [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
@@ -120,7 +128,7 @@ Leader key: `Space`.
 | [vim-repeat](https://github.com/tpope/vim-repeat) | Add "repeat" support for plugins. |
 | [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
-| [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editoriconfig](https://editorconfig.org/) file. |
+| [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editorconfig](https://editorconfig.org/) file. |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Quickstart configs for Neovim's LSP client.  |
 | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | Autocompletion engine. |
 | [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) | nvim-cmp source. Suggest words in the current buffer. |
