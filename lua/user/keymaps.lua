@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 
 -- Shortcuts
-vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^') 
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^')
 vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 

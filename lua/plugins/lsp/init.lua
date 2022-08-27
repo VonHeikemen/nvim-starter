@@ -74,7 +74,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   {border = 'rounded'}
 )
 
---- 
+---
 -- LSP servers
 ---
 local default_handler = function(server)

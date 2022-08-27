@@ -8,7 +8,7 @@ require('nvim-tree').setup({
 
     -- :help nvim-tree.api
     local api = require('nvim-tree.api')
-   
+
     bufmap('L', api.node.open.edit, 'Expand folder or go to file')
     bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
   end
