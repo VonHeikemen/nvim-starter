@@ -1,13 +1,15 @@
 # Neovim Starter
 
-Base configuration for Neovim. Meant to be somewhat unopinionated but small. The plugin manager ([packer.nvim](https://github.com/wbthomason/packer.nvim)) will be downloaded along side all plugins the first time you open Neovim.
+Base configuration for Neovim. For those looking to make Neovim their new main editor. Here you'll find a popular combination of plugin to make your experience a little bit better.
 
-All the code in this configuration is explained here:
+A few things have been configured to resemble more "traditional" text editors. There are things like file explorer with tree style view, list open files in tabsa and git integration.
+
+Autocompletion and "code intellisense" is omitted on this configuration, so you can do your research and add the plugins you think fit best with your workflow.
+
+All the code in this configuration in these two articles:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
-
-Autocompletion and "code intellisense" is omitted on this configuration, so you can do your research and add the one you think is best for your workflow.
 
 ## Requirements
 
@@ -37,7 +39,15 @@ nvim -c 'edit $MYVIMRC'
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Restart Neovim. Wait until plugins are installed then restart Neovim again.
+* Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
+
+### Plugins directory
+
+Your plugins will be installed in a separate directory from your configuration. The location of this directory depends on your operating system and environment variables, so you'll need to execute this command to know where that is.
+
+```sh
+nvim --headless -c 'echo stdpath("data") . "/site/pack/packer" | quit'
+```
 
 ## Keybindings
 
