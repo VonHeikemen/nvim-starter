@@ -431,7 +431,7 @@ require('mason-lspconfig').setup({
     'tsserver',
     'eslint',
     'html',
-    'css'
+    'cssls'
   }
 })
 
