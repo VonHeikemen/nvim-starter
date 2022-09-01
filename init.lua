@@ -515,8 +515,17 @@ vim.api.nvim_create_autocmd('User', {
 -- LSP servers
 ---
 -- See :help lspconfig-setup
-lspconfig.tsserver.setup({})
-lspconfig.eslint.setup({})
 lspconfig.html.setup({})
 lspconfig.cssls.setup({})
+lspconfig.eslint.setup({})
+lspconfig.tsserver.setup({
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    completions = {
+      completeFunctionCalls = true
+    }
+  },
+})
 
