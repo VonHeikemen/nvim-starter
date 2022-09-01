@@ -92,7 +92,6 @@ require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function() require('plugins.lsp') end,
-    after = {'mason.nvim', 'mason-lspconfig.nvim'},
     commit = 'df17834baeba1b8425c15a31cbf52e6b23115c37'
   }
 
@@ -100,7 +99,6 @@ require('packer').startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     config = function() require('plugins.nvim-cmp') end,
-    after = {'LuaSnip'},
     commit = 'b5885696b1f2cbdc9f523cc09c2a786919de07d5'
   }
   use {'hrsh7th/cmp-buffer', commit = '3022dbc9166796b644a841a02de8dd1cc1d311fa'}
