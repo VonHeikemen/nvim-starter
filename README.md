@@ -1,6 +1,6 @@
 # Neovim Starter
 
-Base configuration for Neovim. Meant to be unopinionated and minimal. The plugin manager ([packer.nvim](https://github.com/wbthomason/packer.nvim)) will be downloaded along side all plugins the first time you open Neovim.
+Base configuration for Neovim. Meant to be unopinionated and minimal. It provides a colorscheme, a statusline and a plugin manager. And it shows just enough about Neovim's lua api so you can extend it to your liking.
 
 All the code in this configuration is explained here:
 
