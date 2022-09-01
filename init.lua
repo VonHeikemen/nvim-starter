@@ -190,15 +190,15 @@ require('bufferline').setup({
     offsets = {
       {filetype = 'NvimTree'}
     },
-  }
+  },
   -- :help bufferline-highlights
   highlights = {
     buffer_selected = {
-      gui = 'NONE'
+      italic = false
     },
     indicator_selected = {
-      guifg = {attribute = 'fg', highlight = 'Function'},
-      gui = 'NONE'
+      fg = {attribute = 'fg', highlight = 'Function'},
+      italic = false
     }
   }
 })
