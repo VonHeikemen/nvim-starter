@@ -2,12 +2,19 @@
 
 Base configuration for Neovim. For those looking to make Neovim their new main editor. Here you'll find a popular combination of plugin to make your experience a little bit better.
 
-A few things have been configured to resemble more "traditional" text editors. There are things like file explorer with "tree style" view, list open files in tabs, git integration and autocompletion with "code intellisense". It will not be as powerful as an IDE but it'll provide a good experience.
+A few things have been configured to resemble other modern text editors. You'll find a file explorer with tree style view, list open files in tabs, git integration and a terminal easy to toggle.
 
-All the code in this configuration is explained in this series of articles:
+Autocompletion and "code intellisense" is provided by the LSP client built into Neovim. The following language servers are configured:
+
+* tsserver
+* eslint
+* cssls
+* html
+
+Most of the code in this configuration is explained in this series:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
-* [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
+* [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/es/tools/neovim-plugins-to-get-started/)
 * [Setup nvim-lspconfig + nvim-cmp](https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/)
 
 ## Requirements
@@ -16,8 +23,8 @@ All the code in this configuration is explained in this series of articles:
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
 * [make](https://www.gnu.org/software/make/).
-* [tsserver](https://github.com/theia-ide/typescript-language-server).
-* [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted).
+* [tsserver](https://github.com/theia-ide/typescript-language-server). Typescript language server.
+* [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted). Provides language servers for `eslint`, `css` and `html`.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
@@ -71,6 +78,7 @@ Leader key: `Space`.
 | Normal | `<leader>fd` | Search diagnostics in current file. |
 | Normal | `<leader>fs` | Search pattern in current file. |
 | Normal | `<leader>e` | Open file explorer. |
+| Normal | `<Ctrl-t>` | Toggle the builtin terminal. |
 | Normal | `K` | Displays hover information about the symbol under the cursor. |
 | Normal | `gd` | Jump to the definition. |
 | Normal | `gD` | Jump to declaration. |
@@ -129,6 +137,7 @@ Leader key: `Space`.
 | [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
 | [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editorconfig](https://editorconfig.org/) file. |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Manage terminal windows easily. |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Quickstart configs for Neovim's LSP client.  |
 | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | Autocompletion engine. |
 | [cmp-buffer](https://github.com/hrsh7th/cmp-buffer) | nvim-cmp source. Suggest words in the current buffer. |
