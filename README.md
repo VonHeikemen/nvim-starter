@@ -4,7 +4,7 @@ Base configuration for Neovim. For those looking to make Neovim their new main e
 
 A few things have been configured to resemble other modern text editors. You'll find a file explorer with tree style view, list open files in tabs, git integration, a terminal easy to toggle.
 
-All the code in this configuration in these two articles:
+All the code in this configuration is explained in these two articles:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Plugins to get started](https://vonheikemen.github.io/devlog/es/tools/neovim-plugins-to-get-started/)
