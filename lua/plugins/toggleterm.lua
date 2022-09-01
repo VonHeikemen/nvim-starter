@@ -1,5 +1,8 @@
+local ok, toggleterm = pcall(require, 'toggleterm')
+if not ok then return end
+
 -- See :help toggleterm-roadmap
-require('toggleterm').setup({
+toggleterm.setup({
   open_mapping = '<C-t>',
   direction = 'horizontal',
 })

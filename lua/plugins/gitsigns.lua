@@ -1,5 +1,8 @@
+local ok, gitsigns = pcall(require, 'gitsigns')
+if not ok then return end
+
 -- See :help gitsigns-usage
-require('gitsigns').setup({
+gitsigns.setup({
   signs = {
     add = {text = '▎'},
     change = {text = '▎'},

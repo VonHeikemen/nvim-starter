@@ -1,5 +1,8 @@
+local ok, bufferline =  pcall(require, 'bufferline')
+if not ok then return end
+
 -- See :help bufferline-settings
-require('bufferline').setup({
+bufferline.setup({
   options = {
     mode = 'buffers',
     offsets = {
