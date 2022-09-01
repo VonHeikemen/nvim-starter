@@ -116,6 +116,7 @@ require('packer').startup(function(use)
   use {'moll/vim-bbye'}
   use {'nvim-lua/plenary.nvim'}
   use {'editorconfig/editorconfig-vim'}
+  use {'akinsho/toggleterm.nvim', tag = 'v2.*'}
 
   if install_plugins then
     require('packer').sync()
@@ -289,4 +290,14 @@ require('nvim-tree').setup({
 })
 
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+
+
+---
+-- toggleterm
+---
+-- See :help toggleterm-roadmap
+require('toggleterm').setup({
+  open_mapping = '<C-t>',
+  direction = 'horizontal',
+})
 
