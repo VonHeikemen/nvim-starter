@@ -23,31 +23,31 @@ require('packer').startup(function(use)
   use {'kyazdani42/nvim-web-devicons', commit = '2d02a56189e2bde11edd4712fea16f08a6656944'}
   use {
     'nvim-lualine/lualine.nvim',
-    config = function() require('plugins.lualine') end,
+    config = function() pcall(require, 'plugins.lualine') end,
     commit = '3cf45404d4ab5e3b5da283877f57b676cb78d41d'
   }
   use {
     'akinsho/bufferline.nvim',
-    config = function() require('plugins.bufferline') end,
+    config = function() pcall(require, 'plugins.bufferline') end,
     commit = '938908fc8db120d907bda23f6744202f534f63e4'
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = function() require('plugins.indent-blankline') end,
+    config = function() pcall(require, 'plugins.indent-blankline') end,
     commit = 'c15bbe9f23d88b5c0b4ca45a446e01a0a3913707'
   }
 
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',
-    config = function() require('plugins.nvim-tree') end,
+    config = function() pcall(require, 'plugins.nvim-tree') end,
     commit = 'c3ea264947671f44d836af5b7587e12c4b4611f9'
   }
 
   -- Fuzzy finder
   use {
     'nvim-telescope/telescope.nvim',
-    config = function() require('plugins.telescope') end,
+    config = function() pcall(require, 'plugins.telescope') end,
     commit = 'b923665e64380e97294af09117e50266c20c71c7'
   }
   use {
@@ -59,7 +59,7 @@ require('packer').startup(function(use)
   -- Git
   use {
     'lewis6991/gitsigns.nvim',
-    config = function() require('plugins.gitsigns') end,
+    config = function() pcall(require, 'plugins.gitsigns') end,
     commit = 'f6c9596051584ca1e8f455db449330b4e211cb88'
   }
   use {'tpope/vim-fugitive', commit = 'b411b753f805b969cca856e2ae51fdbab49880df'}
@@ -67,13 +67,13 @@ require('packer').startup(function(use)
   -- Code manipulation
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = function() require('plugins.treesitter') end,
+    config = function() pcall(require, 'plugins.treesitter') end,
     commit = '7845f31839b844653736eed6dd284c862156d679'
   }
   use {'nvim-treesitter/nvim-treesitter-textobjects', commit = '8bf4c07320a19b3e02dd0222c04a532c9c10c752'}
   use {
     'numToStr/Comment.nvim',
-    config = function() require('plugins.comment') end,
+    config = function() pcall(require, 'plugins.comment') end,
     commit = '80e7746e42fa685077a7941e9022308c7ad6adf8'
   }
   use {'tpope/vim-surround', commit = 'bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea'}
@@ -91,14 +91,14 @@ require('packer').startup(function(use)
   use {'williamboman/mason-lspconfig.nvim', commit = '99a942105978054fd5c1fee6267e746dde18a21a'}
   use {
     'neovim/nvim-lspconfig',
-    config = function() require('plugins.lsp') end,
+    config = function() pcall(require, 'plugins.lsp') end,
     commit = 'df17834baeba1b8425c15a31cbf52e6b23115c37'
   }
 
   -- Autocomplete
   use {
     'hrsh7th/nvim-cmp',
-    config = function() require('plugins.nvim-cmp') end,
+    config = function() pcall(require, 'plugins.nvim-cmp') end,
     commit = 'b5885696b1f2cbdc9f523cc09c2a786919de07d5'
   }
   use {'hrsh7th/cmp-buffer', commit = '3022dbc9166796b644a841a02de8dd1cc1d311fa'}
@@ -109,7 +109,7 @@ require('packer').startup(function(use)
   -- Snippets
   use {
     'L3MON4D3/LuaSnip',
-    config = function() require('plugins.luasnip') end,
+    config = function() pcall(require, 'plugins.luasnip') end,
     commit = '18439321965ed6deb849b9a438bd95a16184430d'
   }
   use {'rafamadriz/friendly-snippets', commit = 'e5a16f9346e1fa24147d6d23460ca9b41528ab7e'}
