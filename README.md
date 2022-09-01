@@ -24,6 +24,7 @@ Most of the code in this configuration is explained in this series:
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
 * [make](https://www.gnu.org/software/make/), the build tool.
 * [npm cli](https://docs.npmjs.com/cli/v8/commands/npm). Javascript package manager.
+* [nodejs](https://nodejs.org/es/). Javascript runtime. Required by the language servers listed above.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
@@ -86,7 +87,7 @@ Leader key: `Space`.
 | Normal | `[d` | Move to the previous diagnostic. |
 | Normal | `]d` | Move to the next diagnostic. |
 
-### Autocomplete keybindings.
+### Autocomplete keybindings
 
 | Mode | Key | Action |
 | --- | --- | --- |
