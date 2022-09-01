@@ -2,21 +2,26 @@
 
 Base configuration for Neovim. For those looking to make Neovim their new main editor. Here you'll find a popular combination of plugin to make your experience a little bit better.
 
-A few things have been configured to resemble more "traditional" text editors. There are things like file explorer with tree style view, list open files in tabsa and git integration.
-
-Autocompletion and "code intellisense" is omitted on this configuration, so you can do your research and add the plugins you think fit best with your workflow.
+A few things have been configured to resemble other modern text editors. You'll find a file explorer with tree style view, list open files in tabs, git integration, a terminal easy to toggle.
 
 All the code in this configuration in these two articles:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
-* [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
+* [Plugins to get started](https://vonheikemen.github.io/devlog/es/tools/neovim-plugins-to-get-started/)
+
+Autocompletion and "code intellisense" is omitted on this configuration. Do your research and add the plugins you think fit best with your workflow. Here are a few resources you might want to check.
+
+* [Setup nvim-lspconfig + nvim-cmp](https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/)
+* [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
+* [coc.nvim](https://github.com/neoclide/coc.nvim)
+* [vim-lsp](https://github.com/prabirshrestha/vim-lsp)
 
 ## Requirements
 
 * Neovim v0.7 or greater.
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
-* [make](https://www.gnu.org/software/make/).
+* [make](https://www.gnu.org/software/make/), the build tool.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
@@ -70,6 +75,7 @@ Leader key: `Space`.
 | Normal | `<leader>fd` | Search diagnostics in current file. |
 | Normal | `<leader>fs` | Search pattern in current file. |
 | Normal | `<leader>e` | Open file explorer. |
+| Normal | `<Ctrl-t>` | Toggle the builtin terminal. |
 
 ## Plugin list
 
@@ -98,4 +104,5 @@ Leader key: `Space`.
 | [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
 | [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editorconfig](https://editorconfig.org/) file. |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Handle terminal windows easily. |
 
