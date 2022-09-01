@@ -1,8 +1,5 @@
-local ok, cmp = pcall(require, 'cmp')
-if not ok return end
-
-local ok, luasnip = pcall(require, 'luasnip')
-if not ok return end
+local cmp = require('cmp')
+local luasnip = require('luasnip')
 
 local select_opts = {behavior = cmp.SelectBehavior.Select}
 

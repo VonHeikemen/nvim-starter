@@ -1,8 +1,5 @@
-local ok, ts = pcall(require, 'nvim-treesitter.configs')
-if not ok then return end
-
 -- See :help nvim-treesitter-modules
-ts.setup({
+require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,
   },

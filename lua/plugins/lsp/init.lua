@@ -1,19 +1,10 @@
-local ok, lspconfig = pcall(require, 'lspconfig')
-if not ok then return end
-
-local ok, mason = pcall(require, 'mason')
-if not ok then return end
-
 -- See :help mason-settings
-mason.setup({
+require('mason').setup({
   ui = {border = 'rounded'}
 })
 
-local ok, mason_lsp = pcall(require, 'mason-lspconfig')
-if not ok then return end
-
 -- See :help mason-lspconfig-settings
-mason_lsp.setup({
+require('mason-lspconfig').setup({
   ensure_installed = {
     'eslint',
     'tsserver',
@@ -35,6 +26,8 @@ local lsp_defaults = {
     vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
   end
 }
+
+local lspconfig = require('lspconfig')
 
 lspconfig.util.default_config = vim.tbl_deep_extend(
   'force',
@@ -90,7 +83,7 @@ local default_handler = function(server)
 end
 
 -- See :help mason-lspconfig-dynamic-server-setup
-mason_lsp.setup_handlers({
+require('mason-lspconfig').setup_handlers({
   default_handler,
   ['tsserver'] = function()
     lspconfig.tsserver.setup({

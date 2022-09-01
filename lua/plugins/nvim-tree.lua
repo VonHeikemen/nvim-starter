@@ -1,8 +1,5 @@
-local ok, nvim_tree = pcall(require, 'nvim-tree')
-if not ok then return end
-
 -- See :help nvim-tree-setup
-nvim_tree.setup({
+require('nvim-tree').setup({
   hijack_cursor = false,
   on_attach = function(bufnr)
     local bufmap = function(lhs, rhs, desc)
