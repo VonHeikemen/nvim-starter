@@ -119,7 +119,9 @@ require('packer').startup(function(use)
   use {'akinsho/toggleterm.nvim'}
 
   -- LSP support
-  use {'neovim/nvim-lspconfig'},
+  use {'neovim/nvim-lspconfig'}
+  use {'williamboman/mason.nvim'}
+  use {'williamboman/mason-lspconfig.nvim'}
 
   -- Autocomplete
   use {'hrsh7th/nvim-cmp'},
