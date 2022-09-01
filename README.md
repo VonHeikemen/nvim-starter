@@ -25,6 +25,7 @@ Most of the code in this configuration is explained in this series:
 * [make](https://www.gnu.org/software/make/), the build tool.
 * [tsserver](https://github.com/theia-ide/typescript-language-server). Typescript language server.
 * [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted). Provides language servers for `eslint`, `css` and `html`.
+* [nodejs](https://nodejs.org/es/). Javascript runtime. Required by the language servers.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
@@ -93,7 +94,7 @@ Leader key: `Space`.
 | Normal | `[d` | Move to the previous diagnostic. |
 | Normal | `]d` | Move to the next diagnostic. |
 
-### Autocomplete keybindings.
+### Autocomplete keybindings
 
 | Mode | Key | Action |
 | --- | --- | --- |
