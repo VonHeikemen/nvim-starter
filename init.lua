@@ -94,7 +94,7 @@ require('packer').startup(function(use)
   use {'lukas-reineke/indent-blankline.nvim'}
 
   -- File explorer
-  use {'kyazdani42/nvim-tree.lua', tag = 'nightly'}
+  use {'kyazdani42/nvim-tree.lua'}
 
   -- Fuzzy finder
   use {'nvim-telescope/telescope.nvim'}
