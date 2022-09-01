@@ -518,5 +518,5 @@ vim.api.nvim_create_autocmd('User', {
 lspconfig.tsserver.setup({})
 lspconfig.eslint.setup({})
 lspconfig.html.setup({})
-lspconfig.css.setup({})
+lspconfig.cssls.setup({})
 
