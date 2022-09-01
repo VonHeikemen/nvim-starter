@@ -2,12 +2,19 @@
 
 Base configuration for Neovim. For those looking to make Neovim their new main editor. Here you'll find a popular combination of plugin to make your experience a little bit better.
 
-A few things have been configured to resemble more "traditional" text editors. There are things like file explorer with tree style view, list open files in tabs, git integration and autocompletion with "code intellisense". It will not be as powerful as an IDE but it'll provide a good experience.
+A few things have been configured to resemble other modern text editors. You'll find a file explorer with tree style view, list open files in tabs, git integration and a terminal easy to toggle.
 
-All the code in this configuration is explained in this series of articles:
+Autocompletion and "code intellisense" is provided by the LSP client built into Neovim. The following language servers are configured:
+
+* tsserver
+* eslint
+* cssls
+* html
+
+Most of the code in this configuration is explained in this series:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
-* [Startup Plugins](https://vonheikemen.github.io/devlog/es/tools/neovim-startup-plugins/)
+* [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/tools/neovim-plugins-to-get-started/)
 * [Setup nvim-lspconfig + nvim-cmp](https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/)
 
 ## Requirements
@@ -15,7 +22,9 @@ All the code in this configuration is explained in this series of articles:
 * Neovim v0.7 or greater.
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
-* [make](https://www.gnu.org/software/make/).
+* [make](https://www.gnu.org/software/make/), the build tool.
+* [npm cli](https://docs.npmjs.com/cli/v8/commands/npm). Javascript package manager.
+* [nodejs](https://nodejs.org/es/). Javascript runtime. Required by the language servers listed above.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
@@ -40,6 +49,8 @@ nvim -c 'edit $MYVIMRC'
 
 * Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
 
+* Next time you open Neovim `nvim-treesitter` will install language parsers for treesitter. And, `mason.nvim` will download language servers listed in the configuration. Use the command `:Mason` to check the download process of language servers.
+
 ## Keybindings
 
 Leader key: `Space`.
@@ -61,13 +72,14 @@ Leader key: `Space`.
 | Normal | `<leader>fd` | Search diagnostics in current file. |
 | Normal | `<leader>fs` | Search pattern in current file. |
 | Normal | `<leader>e` | Open file explorer. |
+| Normal | `<Ctrl-t>` | Toggle the builtin terminal. |
 | Normal | `K` | Displays hover information about the symbol under the cursor. |
 | Normal | `gd` | Jump to the definition. |
 | Normal | `gD` | Jump to declaration. |
 | Normal | `gi` | Lists all the implementations for the symbol under the cursor. |
 | Normal | `go` | Jumps to the definition of the type symbol |
 | Normal | `gr` | Lists all the references. |
-| Normal | `<C-k>` | Displays a function's signature information. |
+| Normal | `<Ctrl-k>` | Displays a function's signature information. |
 | Normal | `<F2>` | Renames all references to the symbol under the cursor. |
 | Normal | `<F4>` | Selects a code action available at the current cursor position. |
 | Visual | `<F4>` | Selects a code action available in the selected text. |
@@ -75,22 +87,22 @@ Leader key: `Space`.
 | Normal | `[d` | Move to the previous diagnostic. |
 | Normal | `]d` | Move to the next diagnostic. |
 
-### Autocomplete keybindings.
+### Autocomplete keybindings
 
 | Mode | Key | Action |
 | --- | --- | --- |
 | Insert | `<Up>` | Move to previous item. |
 | Insert | `<Down>` | Move to next item. |
-| Insert | `<C-p>` | Move to previous item. |
-| Insert | `<C-n>` | Move to next item. |
-| Insert | `<C-u>` | Scroll up in documentation window. |
-| Insert | `<C-f>` | Scroll down in documentation window. |
-| Insert | `<C-e>` | Cancel completion. |
+| Insert | `<Ctrl-p>` | Move to previous item. |
+| Insert | `<Ctrl-n>` | Move to next item. |
+| Insert | `<Ctrl-u>` | Scroll up in documentation window. |
+| Insert | `<Ctrl-f>` | Scroll down in documentation window. |
+| Insert | `<Ctrl-e>` | Cancel completion. |
 | Insert | `<Enter>` | Confirm completion. |
-| Insert | `<C-d>` | Go to next placeholder in snippet. |
-| Insert | `<C-b>` | Go to previous placeholder in snippet. |
+| Insert | `<Ctrl-d>` | Go to next placeholder in snippet. |
+| Insert | `<Ctrl-b>` | Go to previous placeholder in snippet. |
 | Insert | `<Tab>` | If completion menu is open, go to next item. Else, open completion menu. |
-| Insert | `<S-Tab>` | If completion menu is open, go to previous item. |
+| Insert | `<Shift-Tab>` | If completion menu is open, go to previous item. |
 
 ## Plugin list
 
@@ -119,6 +131,7 @@ Leader key: `Space`.
 | [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
 | [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editorconfig](https://editorconfig.org/) file. |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Manage terminal windows easily. |
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | Portable package manager for Neovim. |
 | [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Integrates nvim-lspconfig and mason.nvim. |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Quickstart configs for Neovim's LSP client.  |
