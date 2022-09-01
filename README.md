@@ -7,7 +7,7 @@ A few things have been configured to resemble other modern text editors. You'll 
 All the code in this configuration is explained in these two articles:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
-* [Plugins to get started](https://vonheikemen.github.io/devlog/es/tools/neovim-plugins-to-get-started/)
+* [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/tools/neovim-plugins-to-get-started/)
 
 Autocompletion and "code intellisense" is omitted on this configuration. Do your research and add the plugins you think fit best with your workflow. Here are a few resources you might want to check.
 
