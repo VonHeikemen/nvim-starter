@@ -14,7 +14,7 @@ Autocompletion and "code intellisense" is provided by the LSP client built into 
 Most of the code in this configuration is explained in this series:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
-* [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/es/tools/neovim-plugins-to-get-started/)
+* [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/tools/neovim-plugins-to-get-started/)
 * [Setup nvim-lspconfig + nvim-cmp](https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/)
 
 ## Requirements
