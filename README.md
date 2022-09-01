@@ -22,7 +22,7 @@ Most of the code in this configuration is explained in this series:
 * Neovim v0.7 or greater.
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
-* [make](https://www.gnu.org/software/make/).
+* [make](https://www.gnu.org/software/make/), the build tool.
 * [tsserver](https://github.com/theia-ide/typescript-language-server). Typescript language server.
 * [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted). Provides language servers for `eslint`, `css` and `html`.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
