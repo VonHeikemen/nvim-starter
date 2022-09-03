@@ -286,6 +286,7 @@ require('nvim-tree').setup({
 
     bufmap('L', api.node.open.edit, 'Expand folder or go to file')
     bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
+    bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
   end
 })
 
