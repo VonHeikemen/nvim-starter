@@ -12,7 +12,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function(use)
-    -- Plugin manager
+  -- Plugin manager
   use {'wbthomason/packer.nvim', commit = 'b32b982d52664a0a6c5a43a5f9934f001d722d4e'}
 
   -- Theming
