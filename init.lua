@@ -297,7 +297,8 @@ vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
 ---
 -- See :help toggleterm-roadmap
 require('toggleterm').setup({
-  open_mapping = '<C-t>',
+  open_mapping = '<C-g>',
   direction = 'horizontal',
+  shade_terminals = true
 })
 

@@ -75,7 +75,7 @@ Leader key: `Space`.
 | Normal | `<leader>fd` | Search diagnostics in current file. |
 | Normal | `<leader>fs` | Search pattern in current file. |
 | Normal | `<leader>e` | Open file explorer. |
-| Normal | `<Ctrl-t>` | Toggle the builtin terminal. |
+| Normal | `<Ctrl-g>` | Toggle the builtin terminal. |
 
 ## Plugin list
 
