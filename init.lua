@@ -516,18 +516,25 @@ vim.api.nvim_create_autocmd('User', {
 ---
 -- LSP servers
 ---
--- See :help lspconfig-setup
-lspconfig.html.setup({})
-lspconfig.cssls.setup({})
-lspconfig.eslint.setup({})
-lspconfig.tsserver.setup({
-  flags = {
-    debounce_text_changes = 150,
-  },
-  settings = {
-    completions = {
-      completeFunctionCalls = true
-    }
-  },
-})
+
+-- Prevent multiple instance of lsp servers
+-- if file is sourced again
+if vim.g.lsp_setup_ready == nil then
+  vim.g.lsp_setup_ready = true
+
+  -- See :help lspconfig-setup
+  lspconfig.html.setup({})
+  lspconfig.cssls.setup({})
+  lspconfig.eslint.setup({})
+  lspconfig.tsserver.setup({
+    flags = {
+      debounce_text_changes = 150,
+    },
+    settings = {
+      completions = {
+        completeFunctionCalls = true
+      }
+    },
+  })
+end
 
