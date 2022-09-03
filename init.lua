@@ -94,7 +94,7 @@ require('packer').startup(function(use)
   use {'lukas-reineke/indent-blankline.nvim', commit = 'c15bbe9f23d88b5c0b4ca45a446e01a0a3913707'}
 
   -- File explorer
-  use {'kyazdani42/nvim-tree.lua', tag = 'nightly', commit = 'c3ea264947671f44d836af5b7587e12c4b4611f9'}
+  use {'kyazdani42/nvim-tree.lua', commit = 'c3ea264947671f44d836af5b7587e12c4b4611f9'}
 
   -- Fuzzy finder
   use {'nvim-telescope/telescope.nvim', commit = 'b923665e64380e97294af09117e50266c20c71c7'}
@@ -116,7 +116,7 @@ require('packer').startup(function(use)
   use {'moll/vim-bbye', commit = '25ef93ac5a87526111f43e5110675032dbcacf56'}
   use {'nvim-lua/plenary.nvim', commit = 'a3dafaa937921a4eb2ae65820c3479ab561e9ba3'}
   use {'editorconfig/editorconfig-vim', commit = 'd354117b72b3b43b75a29b8e816c0f91af10efe9'}
-  use {'akinsho/toggleterm.nvim', tag = 'v2.*', commit = 'cd3b4d67112fbc8bee01ea44ba5ad1eea3894714'}
+  use {'akinsho/toggleterm.nvim', commit = 'cd3b4d67112fbc8bee01ea44ba5ad1eea3894714'}
 
   if install_plugins then
     require('packer').sync()
