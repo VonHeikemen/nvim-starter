@@ -81,42 +81,42 @@ end
 
 require('packer').startup(function(use)
   -- Plugin manager
-  use {'wbthomason/packer.nvim', commit = 'b32b982d52664a0a6c5a43a5f9934f001d722d4e'}
+  use {'wbthomason/packer.nvim'}
 
   -- Theming
-  use {'folke/tokyonight.nvim', commit = '791c2a219a9425a5817fafc2dd2dcf65c4a0abde'}
-  use {'joshdick/onedark.vim', commit = '1fe54f212f09a03c2b5e277f0fe5b7b9d0b0a4ed'}
-  use {'tanvirtin/monokai.nvim', commit = '4fc970efcbbdcd614733eb8c68d3b8bf8bddec3e'}
-  use {'lunarvim/darkplus.nvim', commit = 'aa1f0a582dc897259b9cb8bebad64110da4d4cc4'}
-  use {'kyazdani42/nvim-web-devicons', commit = '2d02a56189e2bde11edd4712fea16f08a6656944'}
-  use {'nvim-lualine/lualine.nvim', commit = '3cf45404d4ab5e3b5da283877f57b676cb78d41d'}
-  use {'akinsho/bufferline.nvim', commit = '938908fc8db120d907bda23f6744202f534f63e4'}
-  use {'lukas-reineke/indent-blankline.nvim', commit = 'c15bbe9f23d88b5c0b4ca45a446e01a0a3913707'}
+  use {'folke/tokyonight.nvim'}
+  use {'joshdick/onedark.vim'}
+  use {'tanvirtin/monokai.nvim'}
+  use {'lunarvim/darkplus.nvim'}
+  use {'kyazdani42/nvim-web-devicons'}
+  use {'nvim-lualine/lualine.nvim'}
+  use {'akinsho/bufferline.nvim'}
+  use {'lukas-reineke/indent-blankline.nvim'}
 
   -- File explorer
-  use {'kyazdani42/nvim-tree.lua', commit = 'c3ea264947671f44d836af5b7587e12c4b4611f9'}
+  use {'kyazdani42/nvim-tree.lua'}
 
   -- Fuzzy finder
-  use {'nvim-telescope/telescope.nvim', commit = 'b923665e64380e97294af09117e50266c20c71c7'}
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', commit = '6791f74e9f08a9412c43dcba805ecf2f8888bdde'}
+  use {'nvim-telescope/telescope.nvim'}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
   -- Git
-  use {'lewis6991/gitsigns.nvim', commit = 'f6c9596051584ca1e8f455db449330b4e211cb88'}
-  use {'tpope/vim-fugitive', commit = 'b411b753f805b969cca856e2ae51fdbab49880df'}
+  use {'lewis6991/gitsigns.nvim'}
+  use {'tpope/vim-fugitive'}
 
   -- Code manipulation
-  use {'nvim-treesitter/nvim-treesitter', commit = '7845f31839b844653736eed6dd284c862156d679'}
-  use {'nvim-treesitter/nvim-treesitter-textobjects', commit = '8bf4c07320a19b3e02dd0222c04a532c9c10c752'}
-  use {'numToStr/Comment.nvim', commit = '80e7746e42fa685077a7941e9022308c7ad6adf8'}
-  use {'tpope/vim-surround', commit = 'bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea'}
-  use {'wellle/targets.vim', commit = '8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d'}
-  use {'tpope/vim-repeat', commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a'}
+  use {'nvim-treesitter/nvim-treesitter'}
+  use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  use {'numToStr/Comment.nvim'}
+  use {'tpope/vim-surround'}
+  use {'wellle/targets.vim'}
+  use {'tpope/vim-repeat'}
 
   -- Utilities
-  use {'moll/vim-bbye', commit = '25ef93ac5a87526111f43e5110675032dbcacf56'}
-  use {'nvim-lua/plenary.nvim', commit = 'a3dafaa937921a4eb2ae65820c3479ab561e9ba3'}
-  use {'editorconfig/editorconfig-vim', commit = 'd354117b72b3b43b75a29b8e816c0f91af10efe9'}
-  use {'akinsho/toggleterm.nvim', commit = 'cd3b4d67112fbc8bee01ea44ba5ad1eea3894714'}
+  use {'moll/vim-bbye'}
+  use {'nvim-lua/plenary.nvim'}
+  use {'editorconfig/editorconfig-vim'}
+  use {'akinsho/toggleterm.nvim'}
 
   if install_plugins then
     require('packer').sync()
