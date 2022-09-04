@@ -75,7 +75,10 @@ require('packer').startup(function(use)
   use {'moll/vim-bbye'}
   use {'nvim-lua/plenary.nvim'}
   use {'editorconfig/editorconfig-vim'}
-  use {'akinsho/toggleterm.nvim'}
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function() pcall(require, 'plugins.toggleterm') end,
+  }
 
   -- LSP support
   use {'williamboman/mason.nvim'}
