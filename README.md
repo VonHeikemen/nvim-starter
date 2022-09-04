@@ -8,6 +8,7 @@
 * [03-lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp): Example configuration showing how to configure the built-in LSP client with autocompletion. It is based on `02-opinionated` so it has the same set of plugins.
 * [04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer): Same as `03-lsp`, but uses `mason.nvim` to install language servers.
 * [05-modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular): Same as `04-lsp-installer` but everything is split in modules.
+* [xx-lsp-minimal](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-minimal): Minimal setup with `nvim-lspconfig` + `nvim-cmp`.
 
 ## Other template configurations
 
