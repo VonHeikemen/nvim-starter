@@ -33,19 +33,25 @@ Most of the code in this configuration is explained in this series:
 
 * Backup your existing configuration if you have one.
 
-* Create an `init.lua` file in your system. Use this command if you don't know the specific location of Neovim's configuration folder.
+* If you don't know the path of the Neovim configuration folder use this command.
 
 ```sh
-nvim --headless -c 'call mkdir(stdpath("config"), "p") | exe "edit" stdpath("config") . "/init.lua" | write | quit'
+nvim --headless -c 'echo stdpath("config") | quit'
 ```
 
-* Open your configuration file with Neovim.
+* Now clone this repository in that location.
 
 ```sh
-nvim -c 'edit $MYVIMRC'
+git clone https://github.com/VonHeikemen/nvim-starter /tmp/nvim-config-path
 ```
 
-* Copy the content of `init.lua` in this repository into your own `init.lua`.
+> Do not execute this command as is. Replace `/tmp/nvim-config-path` with the correct path from the previous step.
+
+* Move to the configuration folder where you clone the repository. Change branch to `05-modular`.
+
+```sh
+git checkout 05-modular
+```
 
 * Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
 
