@@ -9,6 +9,7 @@
 * [04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer): Same as `03-lsp`, but uses `mason.nvim` to install language servers.
 * [05-modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular): Same as `04-lsp-installer` but everything is split in modules.
 * [xx-lsp-minimal](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-minimal): Minimal setup with `nvim-lspconfig` + `nvim-cmp`.
+* [xx-lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using `lsp-zero.nvim`.
 
 ## Other template configurations
 
