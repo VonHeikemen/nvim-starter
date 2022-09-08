@@ -506,6 +506,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 ---
 vim.api.nvim_create_autocmd('User', {
   pattern = 'LspAttached',
+  group = group,
   desc = 'LSP actions',
   callback = function()
     local bufmap = function(mode, lhs, rhs)
