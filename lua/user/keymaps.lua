@@ -1,3 +1,5 @@
+local group = vim.api.nvim_create_augroup('mapping_cmds', {clear = true})
+
 -- Space as leader key
 vim.g.mapleader = ' '
 
@@ -20,6 +22,7 @@ vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'LspAttached',
+  group = group,
   desc = 'LSP actions',
   callback = function()
     local bufmap = function(mode, lhs, rhs)
