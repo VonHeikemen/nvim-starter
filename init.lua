@@ -54,10 +54,16 @@ local function netrw_mapping()
   bufmap('<leader>e', ':Lexplore<cr>')
   bufmap('<leader>E', ':Lexplore<cr>')
 
-  -- Better navigation
+  -- Go back in history
   bufmap('H', 'u')
+
+  -- Go up a directory
   bufmap('h', '-^')
+
+  -- Open file/directory
   bufmap('l', '<cr>')
+
+  -- Open file/directory then close explorer
   bufmap('L', '<cr>:Lexplore<CR>')
 
   -- Toggle dotfiles
