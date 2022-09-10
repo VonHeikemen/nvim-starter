@@ -330,6 +330,8 @@ require('luasnip.loaders.from_vscode').lazy_load()
 ---
 -- nvim-cmp (autocomplete)
 ---
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
