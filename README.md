@@ -70,6 +70,7 @@ Leader key: `Space`.
 | Normal | `cv` | Paste clipboard content. |
 | Normal | `<leader>w` | Save file. |
 | Normal | `<leader>bq` | Close current buffer. |
+| Normal | `<leader>bc` | Close current buffer while preserving the window layout. |
 | Normal | `<leader>bl` | Go to last active buffer. |
 | Normal | `<leader>?` | Search oldfiles history. |
 | Normal | `<leader><space>` | Search open buffers. |
