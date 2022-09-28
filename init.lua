@@ -13,7 +13,7 @@ packer.startup(function(use)
   use {'joshdick/onedark.vim'}              -- Colorscheme
   use {'williamboman/mason.nvim'}           -- Installer for external tools
   use {'williamboman/mason-lspconfig.nvim'} -- mason extension for LSP
-  use {'neovim/nvim-lspconfig'}             -- LSP support
+  use {'neovim/nvim-lspconfig'}             -- LSP server configurations
   use {'hrsh7th/nvim-cmp'}                  -- Autocomplete engine
   use {'hrsh7th/cmp-nvim-lsp'}              -- Completion source
   use {'saadparwaiz1/cmp_luasnip'}          -- Completion source
@@ -21,6 +21,7 @@ packer.startup(function(use)
   use {'hrsh7th/cmp-path'}                  -- Completion source
   use {'L3MON4D3/LuaSnip'}                  -- Snippet engine
   use {'rafamadriz/friendly-snippets'}      -- Snippet collection
+  use {'VonHeikemen/lsp-zero.nvim'}         -- Preconfigured Autocomplete + LSP setup
 end)
 
 vim.opt.termguicolors = true
