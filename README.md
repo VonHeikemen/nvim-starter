@@ -6,10 +6,10 @@
 * [01-base](https://github.com/VonHeikemen/nvim-starter/tree/01-base): Small configuration that includes a plugin manager. It can provide a good base to start your own configuration.
 * [02-opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated): An opinionated configuration. It includes popular plugins used by the community. For the people who are looking to make Neovim their main editor but don't want to start from scratch. Plugins related to "code intellisense" are not included in this config.
 * [03-lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp): Example configuration showing how to configure the built-in LSP client with autocompletion. It is based on `02-opinionated` so it has the same set of plugins.
-* [04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer): Same as `03-lsp`, but uses `mason.nvim` to install language servers.
+* [04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer): Same as `03-lsp`, but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers.
 * [05-modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular): Same as `04-lsp-installer` but everything is split in modules.
-* [xx-lsp-minimal](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-minimal): Minimal setup with `nvim-lspconfig` + `nvim-cmp`.
-* [xx-lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using `lsp-zero.nvim`.
+* [xx-lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
+* [xx-lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim).
 
 ## Other template configurations
 
