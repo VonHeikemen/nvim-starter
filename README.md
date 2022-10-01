@@ -10,6 +10,7 @@
 * [05-modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular): Same as `04-lsp-installer` but everything is split in modules.
 * [xx-lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
 * [xx-lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim).
+* [xx-mason](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
 
 ## Other template configurations
 
