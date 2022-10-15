@@ -29,7 +29,7 @@
 | cmp-buffer | 3022dbc9166796b644a841a02de8dd1cc1d311fa |
 | cmp-path | 447c87cdd6e6d6a1d2488b1d43108bfa217f56e1 |
 | cmp_luasnip | a9de941bcbda508d0a45d28ae366bb3f08db2e36 |
-| cmp-nvim-lsp | affe808a5c56b71630f17aa7c38e15c59fd648a8 |
+| cmp-nvim-lsp | 59e6bb0be39e842e426d0e05db9d954ce60980af |
 | LuaSnip | 8f8d493e7836f2697df878ef9c128337cbf2bb84 |
 | friendly-snippets | 2be79d8a9b03d4175ba6b3d14b082680de1b31b1 |
 
