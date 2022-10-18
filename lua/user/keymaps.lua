@@ -20,8 +20,7 @@ vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')
 vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'LspAttached',
+vim.api.nvim_create_autocmd('LspAttach', {
   group = group,
   desc = 'LSP actions',
   callback = function()

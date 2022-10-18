@@ -19,7 +19,7 @@ Most of the code in this configuration is explained in this series:
 
 ## Requirements
 
-* Neovim v0.7 or greater.
+* Neovim v0.8 or greater.
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
 * [make](https://www.gnu.org/software/make/), the build tool.
@@ -28,6 +28,8 @@ Most of the code in this configuration is explained in this series:
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
+
+> Here's the config [compatible with v0.7](https://github.com/VonHeikemen/nvim-starter/tree/4e7ccba7e69182f3dc1ee2f27be66677118c35b6). 
 
 ## Installation
 
