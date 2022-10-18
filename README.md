@@ -30,6 +30,8 @@ Most of the code in this configuration is explained in this series:
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
 
+> Here's the config [compitable with v0.7](https://github.com/VonHeikemen/nvim-starter/tree/112bbd38675d35d1c0dbf4e4c4dc750b836c8794). 
+
 ## Installation
 
 * Backup your existing configuration if you have one.
