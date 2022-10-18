@@ -424,22 +424,13 @@ cmp.setup({
 -- LSP config
 ---
 -- See :help lspconfig-global-defaults
-local lsp_defaults = {
-  flags = {
-    debounce_text_changes = 150,
-  },
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
-  on_attach = function(client, bufnr)
-    vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
-  end
-}
-
 local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config
 
-lspconfig.util.default_config = vim.tbl_deep_extend(
+lsp_defaults.capabilities = vim.tbl_deep_extend(
   'force',
-  lspconfig.util.default_config,
-  lsp_defaults
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
 )
 
 ---
@@ -484,8 +475,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 ---
 -- LSP Keybindings
 ---
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'LspAttached',
+vim.api.nvim_create_autocmd('LspAttach', {
   group = group,
   desc = 'LSP actions',
   callback = function()
