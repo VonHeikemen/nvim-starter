@@ -10,7 +10,7 @@ if not ok then return end
 
 packer.startup(function(use)
   use {'wbthomason/packer.nvim'}            -- Plugin manager
-  use {'joshdick/onedark.vim'}              -- Colorscheme
+  use {'folke/tokyonight.nvim'}             -- Colorscheme
   use {'williamboman/mason.nvim'}           -- Installer for external tools
   use {'williamboman/mason-lspconfig.nvim'} -- mason extension for LSP
   use {'neovim/nvim-lspconfig'}             -- LSP server configurations
@@ -25,7 +25,7 @@ packer.startup(function(use)
 end)
 
 vim.opt.termguicolors = true
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight')
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
