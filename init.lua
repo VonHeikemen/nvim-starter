@@ -96,7 +96,8 @@ end)
 
 if install_plugins then
   print '=================================='
-  print '    Plugins are being installed'
+  print '    Plugins will be installed.'
+  print '      After you press Enter'
   print '    Wait until Packer completes,'
   print '       then restart nvim'
   print '=================================='
