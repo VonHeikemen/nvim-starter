@@ -142,7 +142,7 @@ end
 -- Colorscheme
 ---
 vim.opt.termguicolors = true
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight')
 
 
 ---
@@ -159,7 +159,7 @@ vim.opt.showmode = false
 -- See :help lualine.txt
 require('lualine').setup({
   options = {
-    theme = 'onedark',
+    theme = 'tokyonight',
     icons_enabled = true,
     component_separators = '|',
     section_separators = '',
