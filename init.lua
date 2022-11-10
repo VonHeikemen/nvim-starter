@@ -85,7 +85,7 @@ end
 
 require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
-  use {'joshdick/onedark.vim'}
+  use {'folke/tokyonight.nvim'}
   use {'kyazdani42/nvim-web-devicons'}
   use {'nvim-lualine/lualine.nvim'}
 
@@ -113,7 +113,7 @@ end
 -- Colorscheme
 ---
 vim.opt.termguicolors = true
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight')
 
 
 ---
@@ -123,7 +123,7 @@ vim.opt.showmode = false
 require('lualine').setup({
   options = {
     icons_enabled = false,
-    theme = 'onedark',
+    theme = 'tokyonight',
     component_separators = '|',
     section_separators = '',
   },
