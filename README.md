@@ -33,4 +33,5 @@
 * [Neovim lua plugin from scratch](https://www.youtube.com/watch?v=n4Lp4cV8YR0)
 * [Neovim - Rust IDE](https://www.youtube.com/watch?v=gfQ6Ae4lvL0)
 * [Neovim - Setting up a Java IDE](https://www.youtube.com/watch?v=0q_MKUynUck)
+* [Mastering The Macro Machine - Vimconf.live 2021](https://www.youtube.com/watch?v=ZMA6MghrpWM) 
 
