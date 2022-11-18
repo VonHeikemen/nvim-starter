@@ -8,15 +8,17 @@
 * [03-lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp): Example configuration showing how to configure the built-in LSP client with autocompletion. It is based on `02-opinionated` so it has the same set of plugins.
 * [04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer): Same as `03-lsp`, but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers.
 * [05-modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular): Same as `04-lsp-installer` but everything is split in modules.
-* [xx-lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
-* [xx-lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim).
-* [xx-mason](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
 
 ## Other template configurations
 
 * [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 * [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 * [cosynvim](https://github.com/glepnir/cosynvim)
+
+## Example setups
+* [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
+* [lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim).
+* [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
 
 ## Learn how to configure Neovim
 
