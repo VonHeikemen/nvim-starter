@@ -31,6 +31,7 @@
 
 ## Videos
 
+* [Opinionated setup guide (for mac or linux)](https://www.youtube.com/watch?v=vdn_pKJUda8)
 * [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
 * [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
 * [Neovim lua plugin from scratch](https://www.youtube.com/watch?v=n4Lp4cV8YR0)
