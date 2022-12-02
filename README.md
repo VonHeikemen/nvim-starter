@@ -90,6 +90,7 @@ Leader key: `Space`.
 | Normal | `gr` | Lists all the references. |
 | Normal | `<Ctrl-k>` | Displays a function's signature information. |
 | Normal | `<F2>` | Renames all references to the symbol under the cursor. |
+| Normal | `<F3>` | Format code in current buffer. |
 | Normal | `<F4>` | Selects a code action available at the current cursor position. |
 | Visual | `<F4>` | Selects a code action available in the selected text. |
 | Normal | `gl` | Show diagnostics in a floating window. |
