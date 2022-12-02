@@ -141,7 +141,7 @@ end)
 if install_plugins then
   print '=================================='
   print '    Plugins will be installed.'
-  print '    After you press Enter'
+  print '      After you press Enter'
   print '    Wait until Packer completes,'
   print '       then restart nvim'
   print '=================================='
@@ -495,6 +495,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
     bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    bufmap('n', '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
     bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
