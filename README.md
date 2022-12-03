@@ -34,8 +34,10 @@
 * [Opinionated setup guide (for mac or linux)](https://www.youtube.com/watch?v=vdn_pKJUda8)
 * [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
 * [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
+* [Vim As Your Editor - Introduction](https://www.youtube.com/watch?v=X6AR2RMB5tE) 
+* [Vim As Your Editor - Horizontal Movements](https://youtu.be/5JGVtttuDQA) 
+* [Vim As Your Editor - Vertical Movements](https://www.youtube.com/watch?v=KfENDDEpCsI) 
+* [Mastering The Macro Machine - Vimconf.live 2021](https://www.youtube.com/watch?v=ZMA6MghrpWM) 
 * [Neovim lua plugin from scratch](https://www.youtube.com/watch?v=n4Lp4cV8YR0)
 * [Neovim - Rust IDE](https://www.youtube.com/watch?v=gfQ6Ae4lvL0)
 * [Neovim - Setting up a Java IDE](https://www.youtube.com/watch?v=0q_MKUynUck)
-* [Mastering The Macro Machine - Vimconf.live 2021](https://www.youtube.com/watch?v=ZMA6MghrpWM) 
-
