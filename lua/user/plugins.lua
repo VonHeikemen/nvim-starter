@@ -1,15 +1,21 @@
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local install_plugins = false
+local function ensure_packer()
+  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  print('Installing packer...')
-  local packer_url = 'https://github.com/wbthomason/packer.nvim'
-  vim.fn.system({'git', 'clone', '--depth', '1', packer_url, install_path})
-  print('Done.')
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    print('Installing packer...')
+    local packer_url = 'https://github.com/wbthomason/packer.nvim'
+    vim.fn.system({'git', 'clone', '--depth', '1', packer_url, install_path})
+    print('Done.')
 
-  vim.cmd('packadd packer.nvim')
-  install_plugins = true
+    vim.cmd('packadd packer.nvim')
+    return true
+  end
+
+  return false
 end
+
+-- You can "comment out" the line below after packer is installed
+local install_plugins = ensure_packer()
 
 require('packer').startup(function(use)
   -- Plugin manager
