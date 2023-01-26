@@ -39,7 +39,7 @@ nvim --headless +GitClonePacker
 
 * Wait until plugins are downloaded then restart Neovim.
 
-* Read lsp-zero [autocompletion documentation](https://github.com/VonHeikemen/lsp-zero.nvim#autocompletion) and then the [lsp documentation](https://github.com/VonHeikemen/lsp-zero.nvim#lsp).
+* Read lsp-zero [autocompletion documentation](https://github.com/VonHeikemen/lsp-zero.nvim/blob/v1.x/doc/md/autocomplete.md) and then the [lsp documentation](https://github.com/VonHeikemen/lsp-zero.nvim/blob/v1.x/doc/md/lsp.md).
 
 ### Plugins directory
 
