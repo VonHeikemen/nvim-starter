@@ -54,7 +54,7 @@ nvim --headless -c 'echo stdpath("data") . "/site/pack/packer" | quit'
 | Name | Description  |
 | --- | --- |
 | [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
-| [tokyonight.vim](https://github.com/folke/tokyonight.vim) | Collection of colorschemes. |
+| [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorschemes. |
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | Portable package manager for Neovim. |
 | [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Integrates nvim-lspconfig and mason.nvim. |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Quickstart configs for Neovim's LSP client.  |
