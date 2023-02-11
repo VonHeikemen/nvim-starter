@@ -44,8 +44,12 @@ vim.cmd('colorscheme tokyonight')
 
 -- Learn the keybindings, see :help lsp-zero-keybindings
 -- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
+local lsp = require('lsp-zero').preset({
+  name = 'minimal',
+  set_lsp_keymaps = true,
+  manage_nvim_cmp = true,
+  suggest_lsp_servers = false,
+})
 
 -- (Optional) Configure lua language server for neovim
 -- lsp.nvim_workspace()
