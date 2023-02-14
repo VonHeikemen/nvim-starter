@@ -49,9 +49,7 @@ nvim -c 'edit $MYVIMRC'
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
-
-* Next time you open Neovim `nvim-treesitter` will install language parsers for treesitter. And, `mason.nvim` will download language servers listed in the configuration. Use the command `:Mason` to check the download process of language servers.
+* Next time you start Neovim all plugins downloaded automatically, next language servers will be installed. Use the command `:Mason` to check the progress of language servers.
 
 ## Keybindings
 
@@ -82,7 +80,7 @@ Leader key: `Space`.
 | Normal | `gi` | Lists all the implementations for the symbol under the cursor. |
 | Normal | `go` | Jumps to the definition of the type symbol |
 | Normal | `gr` | Lists all the references. |
-| Normal | `<Ctrl-k>` | Displays a function's signature information. |
+| Normal | `gs` | Displays a function's signature information. |
 | Normal | `<F2>` | Renames all references to the symbol under the cursor. |
 | Normal | `<F3>` | Format code in current buffer. |
 | Normal | `<F4>` | Selects a code action available at the current cursor position. |
@@ -112,7 +110,7 @@ Leader key: `Space`.
 
 | Name | Description  |
 | --- | --- |
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
 | [monokai.nvim](https://github.com/tanvirtin/monokai.nvim) | Colorscheme based on Sublime text's default theme. |
