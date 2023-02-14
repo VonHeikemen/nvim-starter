@@ -8,8 +8,11 @@ All the code in this configuration is explained here:
 
 ## Requirements
 
-* Neovim v0.7 or greater.
+* Neovim v0.8 or greater.
+* git.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
+
+[Here's the config compatible with Neovim v0.7](https://github.com/VonHeikemen/nvim-starter/tree/88f6afe64522afe5768f88e48ba28ede47aab744)
 
 ## Installation
 
@@ -29,7 +32,7 @@ nvim -c 'edit $MYVIMRC'
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Restart Neovim. Wait until plugins are installed then restart Neovim again.
+* Restart Neovim. Wait until plugins are installed.
 
 ## Keybindings
 

@@ -43,11 +43,7 @@ vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 -- ==                               COMMANDS                               == --
 -- ========================================================================== --
 
-vim.api.nvim_create_user_command(
-  'ReloadConfig',
-  'source $MYVIMRC | PackerCompile',
-  {}
-)
+vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 
 local group = vim.api.nvim_create_augroup('user_cmds', {clear = true})
 
@@ -70,45 +66,38 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
 
-local function ensure_packer()
-  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local lazy = {}
 
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    print('Installing packer...')
-    local packer_url = 'https://github.com/wbthomason/packer.nvim'
-    vim.fn.system({'git', 'clone', '--depth', '1', packer_url, install_path})
-    print('Done.')
-
-    vim.cmd('packadd packer.nvim')
-    return true
+function lazy.install(path)
+  if not vim.loop.fs_stat(path) then
+    print('Installing lazy.nvim....')
+    vim.fn.system({
+      'git',
+      'clone',
+      '--filter=blob:none',
+      'https://github.com/folke/lazy.nvim.git',
+      '--branch=stable', -- latest stable release
+      path,
+    })
   end
-
-  return false
 end
 
--- You can "comment out" the line below after packer is installed
-local install_plugins = ensure_packer()
+function lazy.setup(plugins)
+  -- You can "comment out" the line below after lazy.nvim is installed
+  lazy.install(lazy.path)
 
-require('packer').startup(function(use)
-  use {'wbthomason/packer.nvim'}
-  use {'folke/tokyonight.nvim'}
-  use {'kyazdani42/nvim-web-devicons'}
-  use {'nvim-lualine/lualine.nvim'}
-
-  if install_plugins then
-    require('packer').sync()
-  end
-end)
-
-if install_plugins then
-  print '=================================='
-  print '    Plugins will be installed.'
-  print '      After you press Enter'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-  return
+  vim.opt.rtp:prepend(lazy.path)
+  require('lazy').setup(plugins, lazy.opts)
 end
+
+lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+lazy.opts = {}
+
+lazy.setup({
+  {'folke/tokyonight.nvim'},
+  {'kyazdani42/nvim-web-devicons'},
+  {'nvim-lualine/lualine.nvim'},
+})
 
 
 -- ========================================================================== --
