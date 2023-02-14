@@ -57,7 +57,7 @@ nvim -c 'edit $MYVIMRC'
 Your plugins will be installed in a separate directory from your configuration. The location of this directory depends on your operating system and environment variables, so you'll need to execute this command to know where that is.
 
 ```sh
-nvim --headless -c 'echo stdpath("data") . "/site/pack/packer" | quit'
+nvim --headless -c 'echo stdpath("data") . "/lazy/lazy.nvim" | quit'
 ```
 
 ## Keybindings
@@ -119,7 +119,7 @@ Leader key: `Space`.
 
 | Name | Description  |
 | --- | --- |
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
 | [monokai.nvim](https://github.com/tanvirtin/monokai.nvim) | Colorscheme based on Sublime text's default theme. |

@@ -39,11 +39,7 @@ vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 -- ==                               COMMANDS                               == --
 -- ========================================================================== --
 
-vim.api.nvim_create_user_command(
-  'ReloadConfig',
-  'source $MYVIMRC | PackerCompile',
-  {}
-)
+vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 
 local group = vim.api.nvim_create_augroup('user_cmds', {clear = true})
 
@@ -66,93 +62,84 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
 
-local function ensure_packer()
-  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local lazy = {}
 
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    print('Installing packer...')
-    local packer_url = 'https://github.com/wbthomason/packer.nvim'
-    vim.fn.system({'git', 'clone', '--depth', '1', packer_url, install_path})
-    print('Done.')
-
-    vim.cmd('packadd packer.nvim')
-    return true
+function lazy.install(path)
+  if not vim.loop.fs_stat(path) then
+    print('Installing lazy.nvim....')
+    vim.fn.system({
+      'git',
+      'clone',
+      '--filter=blob:none',
+      'https://github.com/folke/lazy.nvim.git',
+      '--branch=stable', -- latest stable release
+      path,
+    })
   end
-
-  return false
 end
 
--- You can "comment out" the line below after packer is installed
-local install_plugins = ensure_packer()
+function lazy.setup(plugins)
+  -- You can "comment out" the line below after lazy.nvim is installed
+  lazy.install(lazy.path)
 
-require('packer').startup(function(use)
-  -- Plugin manager
-  use {'wbthomason/packer.nvim'}
+  vim.opt.rtp:prepend(lazy.path)
+  require('lazy').setup(plugins, lazy.opts)
+end
 
+lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+lazy.opts = {}
+
+lazy.setup({
   -- Theming
-  use {'folke/tokyonight.nvim'}
-  use {'joshdick/onedark.vim'}
-  use {'tanvirtin/monokai.nvim'}
-  use {'lunarvim/darkplus.nvim'}
-  use {'kyazdani42/nvim-web-devicons'}
-  use {'nvim-lualine/lualine.nvim'}
-  use {'akinsho/bufferline.nvim'}
-  use {'lukas-reineke/indent-blankline.nvim'}
+  {'folke/tokyonight.nvim'},
+  {'joshdick/onedark.vim'},
+  {'tanvirtin/monokai.nvim'},
+  {'lunarvim/darkplus.nvim'},
+  {'kyazdani42/nvim-web-devicons'},
+  {'nvim-lualine/lualine.nvim'},
+  {'akinsho/bufferline.nvim'},
+  {'lukas-reineke/indent-blankline.nvim'},
 
   -- File explorer
-  use {'kyazdani42/nvim-tree.lua'}
+  {'kyazdani42/nvim-tree.lua'},
 
   -- Fuzzy finder
-  use {'nvim-telescope/telescope.nvim'}
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+  {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
+  {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
 
   -- Git
-  use {'lewis6991/gitsigns.nvim'}
-  use {'tpope/vim-fugitive'}
+  {'lewis6991/gitsigns.nvim'},
+  {'tpope/vim-fugitive'},
 
   -- Code manipulation
-  use {'nvim-treesitter/nvim-treesitter'}
-  use {'nvim-treesitter/nvim-treesitter-textobjects'}
-  use {'numToStr/Comment.nvim'}
-  use {'tpope/vim-surround'}
-  use {'wellle/targets.vim'}
-  use {'tpope/vim-repeat'}
+  {'nvim-treesitter/nvim-treesitter'},
+  {'nvim-treesitter/nvim-treesitter-textobjects'},
+  {'numToStr/Comment.nvim'},
+  {'tpope/vim-surround'},
+  {'wellle/targets.vim'},
+  {'tpope/vim-repeat'},
 
   -- Utilities
-  use {'moll/vim-bbye'}
-  use {'nvim-lua/plenary.nvim'}
-  use {'editorconfig/editorconfig-vim'}
-  use {'akinsho/toggleterm.nvim'}
+  {'moll/vim-bbye'},
+  {'nvim-lua/plenary.nvim'},
+  {'editorconfig/editorconfig-vim'},
+  {'akinsho/toggleterm.nvim'},
 
   -- LSP support
-  use {'neovim/nvim-lspconfig'}
+  {'neovim/nvim-lspconfig'},
 
   -- Autocomplete
-  use {'hrsh7th/nvim-cmp'}
-  use {'hrsh7th/cmp-buffer'}
-  use {'hrsh7th/cmp-path'}
-  use {'saadparwaiz1/cmp_luasnip'}
-  use {'hrsh7th/cmp-nvim-lsp'}
-  use {'hrsh7th/cmp-nvim-lua'}
+  {'hrsh7th/nvim-cmp'},
+  {'hrsh7th/cmp-buffer'},
+  {'hrsh7th/cmp-path'},
+  {'saadparwaiz1/cmp_luasnip'},
+  {'hrsh7th/cmp-nvim-lsp'},
+  {'hrsh7th/cmp-nvim-lua'},
 
   -- Snippets
-  use {'L3MON4D3/LuaSnip'}
-  use {'rafamadriz/friendly-snippets'}
-
-  if install_plugins then
-    require('packer').sync()
-  end
-end)
-
-if install_plugins then
-  print '=================================='
-  print '    Plugins will be installed.'
-  print '      After you press Enter'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-  return
-end
+  {'L3MON4D3/LuaSnip'},
+  {'rafamadriz/friendly-snippets'},
+})
 
 
 -- ========================================================================== --
@@ -163,7 +150,7 @@ end
 -- Colorscheme
 ---
 vim.opt.termguicolors = true
-vim.cmd('colorscheme tokyonight')
+vim.cmd.colorscheme('tokyonight')
 
 
 ---
@@ -184,6 +171,9 @@ require('lualine').setup({
     icons_enabled = true,
     component_separators = '|',
     section_separators = '',
+    disabled_filetypes = {
+      statusline = {'NvimTree'},
+    },
   },
 })
 
@@ -352,7 +342,7 @@ cmp.setup({
   },
   sources = {
     {name = 'path'},
-    {name = 'nvim_lsp', keyword_length = 3},
+    {name = 'nvim_lsp', keyword_length = 1},
     {name = 'buffer', keyword_length = 3},
     {name = 'luasnip', keyword_length = 2},
   },
@@ -382,12 +372,13 @@ cmp.setup({
     ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
 
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-y>'] = cmp.mapping.confirm({select = true}),
     ['<CR>'] = cmp.mapping.confirm({select = false}),
 
-    ['<C-d>'] = cmp.mapping(function(fallback)
+    ['<C-f>'] = cmp.mapping(function(fallback)
       if luasnip.jumpable(1) then
         luasnip.jump(1)
       else
@@ -463,8 +454,6 @@ vim.diagnostic.config({
   float = {
     border = 'rounded',
     source = 'always',
-    header = '',
-    prefix = '',
   },
 })
 
@@ -499,7 +488,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
     bufmap('n', '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
     bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
@@ -525,9 +514,6 @@ if vim.g.lsp_setup_ready == nil then
   lspconfig.cssls.setup({})
   lspconfig.eslint.setup({})
   lspconfig.tsserver.setup({
-    flags = {
-      debounce_text_changes = 150,
-    },
     settings = {
       completions = {
         completeFunctionCalls = true
