@@ -39,11 +39,7 @@ vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 -- ==                               COMMANDS                               == --
 -- ========================================================================== --
 
-vim.api.nvim_create_user_command(
-  'ReloadConfig',
-  'source $MYVIMRC | PackerCompile',
-  {}
-)
+vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 
 local group = vim.api.nvim_create_augroup('user_cmds', {clear = true})
 
@@ -66,78 +62,68 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
 
-local function ensure_packer()
-  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local lazy = {}
 
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    print('Installing packer...')
-    local packer_url = 'https://github.com/wbthomason/packer.nvim'
-    vim.fn.system({'git', 'clone', '--depth', '1', packer_url, install_path})
-    print('Done.')
-
-    vim.cmd('packadd packer.nvim')
-    return true
+function lazy.install(path)
+  if not vim.loop.fs_stat(path) then
+    print('Installing lazy.nvim....')
+    vim.fn.system({
+      'git',
+      'clone',
+      '--filter=blob:none',
+      'https://github.com/folke/lazy.nvim.git',
+      '--branch=stable', -- latest stable release
+      path,
+    })
   end
-
-  return false
 end
 
--- You can "comment out" the line below after packer is installed
-local install_plugins = ensure_packer()
+function lazy.setup(plugins)
+  -- You can "comment out" the line below after lazy.nvim is installed
+  lazy.install(lazy.path)
 
-require('packer').startup(function(use)
-  -- Plugin manager
-  use {'wbthomason/packer.nvim'}
+  vim.opt.rtp:prepend(lazy.path)
+  require('lazy').setup(plugins, lazy.opts)
+end
 
+lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+
+lazy.setup({
   -- Theming
-  use {'folke/tokyonight.nvim'}
-  use {'joshdick/onedark.vim'}
-  use {'tanvirtin/monokai.nvim'}
-  use {'lunarvim/darkplus.nvim'}
-  use {'kyazdani42/nvim-web-devicons'}
-  use {'nvim-lualine/lualine.nvim'}
-  use {'akinsho/bufferline.nvim'}
-  use {'lukas-reineke/indent-blankline.nvim'}
+  {'folke/tokyonight.nvim'},
+  {'joshdick/onedark.vim'},
+  {'tanvirtin/monokai.nvim'},
+  {'lunarvim/darkplus.nvim'},
+  {'kyazdani42/nvim-web-devicons'},
+  {'nvim-lualine/lualine.nvim'},
+  {'akinsho/bufferline.nvim'},
+  {'lukas-reineke/indent-blankline.nvim'},
 
   -- File explorer
-  use {'kyazdani42/nvim-tree.lua'}
+  {'kyazdani42/nvim-tree.lua'},
 
   -- Fuzzy finder
-  use {'nvim-telescope/telescope.nvim'}
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+  {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
+  {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
 
   -- Git
-  use {'lewis6991/gitsigns.nvim'}
-  use {'tpope/vim-fugitive'}
+  {'lewis6991/gitsigns.nvim'},
+  {'tpope/vim-fugitive'},
 
   -- Code manipulation
-  use {'nvim-treesitter/nvim-treesitter'}
-  use {'nvim-treesitter/nvim-treesitter-textobjects'}
-  use {'numToStr/Comment.nvim'}
-  use {'tpope/vim-surround'}
-  use {'wellle/targets.vim'}
-  use {'tpope/vim-repeat'}
+  {'nvim-treesitter/nvim-treesitter'},
+  {'nvim-treesitter/nvim-treesitter-textobjects'},
+  {'numToStr/Comment.nvim'},
+  {'tpope/vim-surround'},
+  {'wellle/targets.vim'},
+  {'tpope/vim-repeat'},
 
   -- Utilities
-  use {'moll/vim-bbye'}
-  use {'nvim-lua/plenary.nvim'}
-  use {'editorconfig/editorconfig-vim'}
-  use {'akinsho/toggleterm.nvim'}
-
-  if install_plugins then
-    require('packer').sync()
-  end
-end)
-
-if install_plugins then
-  print '=================================='
-  print '    Plugins will be installed.'
-  print '    After you press Enter'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-  return
-end
+  {'moll/vim-bbye'},
+  {'nvim-lua/plenary.nvim'},
+  {'editorconfig/editorconfig-vim'},
+  {'akinsho/toggleterm.nvim'},
+})
 
 
 -- ========================================================================== --
@@ -148,7 +134,7 @@ end
 -- Colorscheme
 ---
 vim.opt.termguicolors = true
-vim.cmd('colorscheme tokyonight')
+vim.cmd.colorscheme('tokyonight')
 
 
 ---
@@ -169,6 +155,9 @@ require('lualine').setup({
     icons_enabled = true,
     component_separators = '|',
     section_separators = '',
+    disabled_filetypes = {
+      statusline = {'NvimTree'}
+    }
   },
 })
 

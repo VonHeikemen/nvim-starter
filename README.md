@@ -18,13 +18,15 @@ Autocompletion and "code intellisense" is omitted on this configuration. Do your
 
 ## Requirements
 
-* Neovim v0.7 or greater.
+* Neovim v0.8 or greater.
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
 * [make](https://www.gnu.org/software/make/), the build tool.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
+
+[Here's the config compatible with Neovim v0.7](https://github.com/VonHeikemen/nvim-starter/tree/f82b01455afd4402cf393ff0b26260c47524e70a).
 
 ## Installation
 
@@ -44,14 +46,14 @@ nvim -c 'edit $MYVIMRC'
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
+* Next time you start Neovim all plugins will be downloaded automatically. Wait until plugins are installed then restart Neovim.
 
 ### Plugins directory
 
 Your plugins will be installed in a separate directory from your configuration. The location of this directory depends on your operating system and environment variables, so you'll need to execute this command to know where that is.
 
 ```sh
-nvim --headless -c 'echo stdpath("data") . "/site/pack/packer" | quit'
+nvim --headless -c 'echo stdpath("data") . "/lazy/lazy.nvim" | quit'
 ```
 
 ## Keybindings
@@ -82,7 +84,7 @@ Leader key: `Space`.
 
 | Name | Description  |
 | --- | --- |
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
 | [monokai.nvim](https://github.com/tanvirtin/monokai.nvim) | Colorscheme based on Sublime text's default theme. |
