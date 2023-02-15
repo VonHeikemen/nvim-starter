@@ -1,5 +1,11 @@
+local Plugin = {'nvim-treesitter/nvim-treesitter'}
+
+Plugin.dependencies = {
+  {'nvim-treesitter/nvim-treesitter-textobjects'}
+}
+
 -- See :help nvim-treesitter-modules
-require('nvim-treesitter.configs').setup({
+Plugin.opts = {
   highlight = {
     enable = true,
   },
@@ -24,5 +30,10 @@ require('nvim-treesitter.configs').setup({
     'css',
     'json'
   },
-})
+}
 
+function Plugin.config(name, opts)
+  require('nvim-treesitter.configs').setup(opts)
+end
+
+return Plugin

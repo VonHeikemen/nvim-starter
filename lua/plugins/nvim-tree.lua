@@ -1,5 +1,9 @@
+local Plugin = {'kyazdani42/nvim-tree.lua'}
+
+Plugin.name = 'nvim-tree'
+
 -- See :help nvim-tree-setup
-require('nvim-tree').setup({
+Plugin.opts = {
   hijack_cursor = false,
   on_attach = function(bufnr)
     local bufmap = function(lhs, rhs, desc)
@@ -13,7 +17,10 @@ require('nvim-tree').setup({
     bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
     bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
   end
-})
+}
 
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+function Plugin.init()
+  vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+end
 
+return Plugin

@@ -1,5 +1,8 @@
--- See :help bufferline-settings
-require('bufferline').setup({
+local Plugin = {'nvim-lualine/lualine.nvim'}
+
+Plugin.name = 'bufferline'
+
+Plugin.opts = {
   options = {
     mode = 'buffers',
     offsets = {
@@ -16,5 +19,10 @@ require('bufferline').setup({
       italic = false
     }
   }
-})
+}
 
+function Plugin.init()
+  vim.opt.showmode = false
+end
+
+return Plugin

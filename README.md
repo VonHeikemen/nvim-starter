@@ -55,9 +55,7 @@ git clone https://github.com/VonHeikemen/nvim-starter /tmp/nvim-config-path
 git checkout 05-modular
 ```
 
-* Next time you start Neovim all plugins will be downloaded automatically. After plugins are downloaded restart Neovim.
-
-* Next time you open Neovim `nvim-treesitter` will install language parsers for treesitter. And, `mason.nvim` will download language servers listed in the configuration. Use the command `:Mason` to check the download process of language servers.
+* Next time you start Neovim all plugins will be downloaded automatically. After this process is done `nvim-treesitter` will install language parsers for treesitter. And, `mason.nvim` will download language servers listed in the configuration. Use the command `:Mason` to check the download process of language servers. 
 
 ## Keybindings
 
@@ -88,7 +86,7 @@ Leader key: `Space`.
 | Normal | `gi` | Lists all the implementations for the symbol under the cursor. |
 | Normal | `go` | Jumps to the definition of the type symbol |
 | Normal | `gr` | Lists all the references. |
-| Normal | `<Ctrl-k>` | Displays a function's signature information. |
+| Normal | `gs` | Displays a function's signature information. |
 | Normal | `<F2>` | Renames all references to the symbol under the cursor. |
 | Normal | `<F3>` | Format code in current buffer. |
 | Normal | `<F4>` | Selects a code action available at the current cursor position. |
@@ -106,10 +104,11 @@ Leader key: `Space`.
 | Insert | `<Ctrl-p>` | Move to previous item. |
 | Insert | `<Ctrl-n>` | Move to next item. |
 | Insert | `<Ctrl-u>` | Scroll up in documentation window. |
-| Insert | `<Ctrl-f>` | Scroll down in documentation window. |
+| Insert | `<Ctrl-d>` | Scroll down in documentation window. |
 | Insert | `<Ctrl-e>` | Cancel completion. |
+| Insert | `<C-y>` | Confirm completion. |
 | Insert | `<Enter>` | Confirm completion. |
-| Insert | `<Ctrl-d>` | Go to next placeholder in snippet. |
+| Insert | `<Ctrl-f>` | Go to next placeholder in snippet. |
 | Insert | `<Ctrl-b>` | Go to previous placeholder in snippet. |
 | Insert | `<Tab>` | If completion menu is open, go to next item. Else, open completion menu. |
 | Insert | `<Shift-Tab>` | If completion menu is open, go to previous item. |
@@ -118,7 +117,7 @@ Leader key: `Space`.
 
 | Name | Description  |
 | --- | --- |
-| [packer.nvim](https://github.com/wbthomason/packer.nvim) | Plugin manager. |
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | Plugin manager. |
 | [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
 | [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
 | [monokai.nvim](https://github.com/tanvirtin/monokai.nvim) | Colorscheme based on Sublime text's default theme. |

@@ -1,5 +1,9 @@
+local Plugin = {'lewis6991/gitsigns.nvim'}
+
+Plugin.name = 'gitsigns'
+
 -- See :help gitsigns-usage
-require('gitsigns').setup({
+Plugin.opts = {
   signs = {
     add = {text = '▎'},
     change = {text = '▎'},
@@ -7,5 +11,7 @@ require('gitsigns').setup({
     topdelete = {text = '➤'},
     changedelete = {text = '▎'},
   }
-})
+}
+
+return Plugin
 
