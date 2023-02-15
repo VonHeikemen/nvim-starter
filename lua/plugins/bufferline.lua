@@ -1,4 +1,4 @@
-local Plugin = {'nvim-lualine/lualine.nvim'}
+local Plugin = {'akinsho/bufferline.nvim'}
 
 Plugin.name = 'bufferline'
 
@@ -20,9 +20,5 @@ Plugin.opts = {
     }
   }
 }
-
-function Plugin.init()
-  vim.opt.showmode = false
-end
 
 return Plugin

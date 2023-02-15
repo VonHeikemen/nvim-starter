@@ -8,3 +8,4 @@ load('user.commands')
 load('user.keymaps')
 load('user.plugins')
 
+pcall(vim.cmd.colorscheme, 'tokyonight')
