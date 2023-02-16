@@ -68,6 +68,22 @@ local function on_attach()
 end
 
 function Plugin.config()
+  -- See :help mason-settings
+  require('mason').setup({
+    ui = {border = 'rounded'}
+  })
+
+  -- See :help mason-lspconfig-settings
+  require('mason-lspconfig').setup({
+    ensure_installed = {
+      'eslint',
+      'tsserver',
+      'html',
+      'cssls',
+      'lua_ls',
+    }
+  })
+
   -- See :help lspconfig-global-defaults
   local lspconfig = require('lspconfig')
   local lsp_defaults = lspconfig.util.default_config
