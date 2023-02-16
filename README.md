@@ -98,10 +98,11 @@ Leader key: `Space`.
 | Insert | `<Ctrl-p>` | Move to previous item. |
 | Insert | `<Ctrl-n>` | Move to next item. |
 | Insert | `<Ctrl-u>` | Scroll up in documentation window. |
-| Insert | `<Ctrl-f>` | Scroll down in documentation window. |
+| Insert | `<Ctrl-d>` | Scroll down in documentation window. |
 | Insert | `<Ctrl-e>` | Cancel completion. |
+| Insert | `<C-y>` | Confirm completion. |
 | Insert | `<Enter>` | Confirm completion. |
-| Insert | `<Ctrl-d>` | Go to next placeholder in snippet. |
+| Insert | `<Ctrl-f>` | Go to next placeholder in snippet. |
 | Insert | `<Ctrl-b>` | Go to previous placeholder in snippet. |
 | Insert | `<Tab>` | If completion menu is open, go to next item. Else, open completion menu. |
 | Insert | `<Shift-Tab>` | If completion menu is open, go to previous item. |
