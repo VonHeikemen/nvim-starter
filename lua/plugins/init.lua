@@ -5,6 +5,13 @@ local Plugins = {
   {'wellle/targets.vim'},
   {'tpope/vim-repeat'},
   {'editorconfig/editorconfig-vim'},
+  {'kyazdani42/nvim-web-devicons'},
+
+  -- Themes
+  {'folke/tokyonight.nvim'},
+  {'joshdick/onedark.vim'},
+  {'tanvirtin/monokai.nvim'},
+  {'lunarvim/darkplus.nvim'},
 }
 
 return Plugins
