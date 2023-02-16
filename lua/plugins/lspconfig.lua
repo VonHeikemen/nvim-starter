@@ -19,7 +19,7 @@ function Plugin.init()
   sign({name = 'DiagnosticSignError', text = '✘'})
   sign({name = 'DiagnosticSignWarn', text = '▲'})
   sign({name = 'DiagnosticSignHint', text = '⚑'})
-  sign({name = 'DiagnosticSignInfo', text = ''})
+  sign({name = 'DiagnosticSignInfo', text = '»'})
 
   -- See :help vim.diagnostic.config()
   vim.diagnostic.config({
