@@ -1,10 +1,19 @@
 local Plugin = {'neovim/nvim-lspconfig'}
+local user = {}
 
 Plugin.dependencies =  {
-  {'williamboman/mason.nvim'},
-  {'williamboman/mason-lspconfig.nvim'},
   {'hrsh7th/cmp-nvim-lsp'},
+  {'williamboman/mason-lspconfig.nvim', lazy = true},
+  {
+    'williamboman/mason.nvim',
+    cmd = {'Mason', 'LspInstall', 'LspUnInstall'},
+    config = function() user.setup_mason() end
+  },
 }
+
+Plugin.cmd = 'LspInfo'
+
+Plugin.event = {'BufReadPre', 'BufNewFile'}
 
 function Plugin.init()
   local sign = function(opts)
@@ -42,7 +51,65 @@ function Plugin.init()
   )
 end
 
-local function on_attach()
+function Plugin.config()
+  -- See :help lspconfig-global-defaults
+  local lspconfig = require('lspconfig')
+  local lsp_defaults = lspconfig.util.default_config
+
+  lsp_defaults.capabilities = vim.tbl_deep_extend(
+    'force',
+    lsp_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
+  )
+
+  local group = vim.api.nvim_create_augroup('lsp_cmds', {clear = true})
+
+  vim.api.nvim_create_autocmd('LspAttach', {
+    group = group,
+    desc = 'LSP actions',
+    callback = user.on_attach
+  })
+
+  -- See :help mason-lspconfig-dynamic-server-setup
+  require('mason-lspconfig').setup_handlers({
+    function(server)
+      -- See :help lspconfig-setup
+      lspconfig[server].setup({})
+    end,
+    ['tsserver'] = function()
+      lspconfig.tsserver.setup({
+        settings = {
+          completions = {
+            completeFunctionCalls = true
+          }
+        }
+      })
+    end,
+    ['lua_ls'] = function()
+      require('plugins.lsp.lua_ls')
+    end
+  })
+end
+
+function user.setup_mason()
+  -- See :help mason-settings
+  require('mason').setup({
+    ui = {border = 'rounded'}
+  })
+
+  -- See :help mason-lspconfig-settings
+  require('mason-lspconfig').setup({
+    ensure_installed = {
+      'eslint',
+      'tsserver',
+      'html',
+      'cssls',
+      'lua_ls',
+    }
+  })
+end
+
+function user.on_attach()
   local bufmap = function(mode, lhs, rhs)
     local opts = {buffer = true}
     vim.keymap.set(mode, lhs, rhs, opts)
@@ -65,62 +132,6 @@ local function on_attach()
   bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
   bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
   bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-end
-
-function Plugin.config()
-  -- See :help mason-settings
-  require('mason').setup({
-    ui = {border = 'rounded'}
-  })
-
-  -- See :help mason-lspconfig-settings
-  require('mason-lspconfig').setup({
-    ensure_installed = {
-      'eslint',
-      'tsserver',
-      'html',
-      'cssls',
-      'lua_ls',
-    }
-  })
-
-  -- See :help lspconfig-global-defaults
-  local lspconfig = require('lspconfig')
-  local lsp_defaults = lspconfig.util.default_config
-
-  lsp_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
-    lsp_defaults.capabilities,
-    require('cmp_nvim_lsp').default_capabilities()
-  )
-
-  local group = vim.api.nvim_create_augroup('lsp_cmds', {clear = true})
-
-  vim.api.nvim_create_autocmd('LspAttach', {
-    group = group,
-    desc = 'LSP actions',
-    callback = on_attach
-  })
-
-  -- See :help mason-lspconfig-dynamic-server-setup
-  require('mason-lspconfig').setup_handlers({
-    function(server)
-      -- See :help lspconfig-setup
-      lspconfig[server].setup({})
-    end,
-    ['tsserver'] = function()
-      lspconfig.tsserver.setup({
-        settings = {
-          completions = {
-            completeFunctionCalls = true
-          }
-        }
-      })
-    end,
-    ['lua_ls'] = function()
-      require('plugins.lsp.lua_ls')
-    end
-  })
 end
 
 return Plugin

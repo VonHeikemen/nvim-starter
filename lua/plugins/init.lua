@@ -1,11 +1,10 @@
 local Plugins = {
   {'tpope/vim-fugitive'},
-  {'numToStr/Comment.nvim', config = true},
-  {'tpope/vim-surround'},
   {'wellle/targets.vim'},
   {'tpope/vim-repeat'},
   {'editorconfig/editorconfig-vim'},
-  {'kyazdani42/nvim-web-devicons'},
+  {'kyazdani42/nvim-web-devicons', lazy = true},
+  {'numToStr/Comment.nvim', config = true, event = 'VeryLazy'},
 
   -- Themes
   {'folke/tokyonight.nvim'},

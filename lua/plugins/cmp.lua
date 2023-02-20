@@ -12,11 +12,15 @@ Plugin.dependencies = {
   {'rafamadriz/friendly-snippets'},
 }
 
+Plugin.event = 'InsertEnter'
+
 function Plugin.config()
   vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
   local cmp = require('cmp')
   local luasnip = require('luasnip')
+
+  require('luasnip.loaders.from_vscode').lazy_load()
 
   local select_opts = {behavior = cmp.SelectBehavior.Select}
 

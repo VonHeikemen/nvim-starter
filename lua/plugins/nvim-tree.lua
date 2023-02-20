@@ -2,6 +2,8 @@ local Plugin = {'kyazdani42/nvim-tree.lua'}
 
 Plugin.name = 'nvim-tree'
 
+Plugin.cmd = {'NvimTreeToggle'}
+
 -- See :help nvim-tree-setup
 Plugin.opts = {
   hijack_cursor = false,
