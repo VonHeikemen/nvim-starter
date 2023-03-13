@@ -17,6 +17,7 @@
 
 ## Example setups
 
+* [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
 * [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
 * [lsp-zero](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-zero): Minimal setup for LSP using [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim).
 * [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
