@@ -20,9 +20,9 @@ packer.startup(function(use)
     branch = 'v1.x',
     requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {'williamboman/mason.nvim'},           -- Optional
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+      {'neovim/nvim-lspconfig'},                         -- Required
+      {'williamboman/mason.nvim', run = ':MasonUpdate'}, -- Optional
+      {'williamboman/mason-lspconfig.nvim'},             -- Optional
 
       -- Autocompletion
       {'hrsh7th/nvim-cmp'},         -- Required
