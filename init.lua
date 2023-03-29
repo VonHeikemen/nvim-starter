@@ -134,7 +134,6 @@ lazy.setup({
   {'hrsh7th/cmp-path'},
   {'saadparwaiz1/cmp_luasnip'},
   {'hrsh7th/cmp-nvim-lsp'},
-  {'hrsh7th/cmp-nvim-lua'},
 
   -- Snippets
   {'L3MON4D3/LuaSnip'},
@@ -228,6 +227,8 @@ require('nvim-treesitter.configs').setup({
     'typescript',
     'tsx',
     'lua',
+    'vim',
+    'help',
     'css',
     'json'
   },
@@ -342,12 +343,13 @@ cmp.setup({
   },
   sources = {
     {name = 'path'},
-    {name = 'nvim_lsp', keyword_length = 1},
+    {name = 'nvim_lsp'},
     {name = 'buffer', keyword_length = 3},
     {name = 'luasnip', keyword_length = 2},
   },
   window = {
-    documentation = cmp.config.window.bordered()
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   formatting = {
     fields = {'menu', 'abbr', 'kind'},
@@ -445,7 +447,7 @@ end
 sign({name = 'DiagnosticSignError', text = '✘'})
 sign({name = 'DiagnosticSignWarn', text = '▲'})
 sign({name = 'DiagnosticSignHint', text = '⚑'})
-sign({name = 'DiagnosticSignInfo', text = ''})
+sign({name = 'DiagnosticSignInfo', text = '»'})
 
 -- See :help vim.diagnostic.config()
 vim.diagnostic.config({
@@ -490,7 +492,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
     bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
-    bufmap('n', '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
+    bufmap({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
     bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
