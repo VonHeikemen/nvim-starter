@@ -213,6 +213,8 @@ require('nvim-treesitter.configs').setup({
     'typescript',
     'tsx',
     'lua',
+    'vim',
+    'help',
     'css',
     'json'
   },
