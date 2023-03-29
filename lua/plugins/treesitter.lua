@@ -27,6 +27,8 @@ Plugin.opts = {
     'typescript',
     'tsx',
     'lua',
+    'vim',
+    'help',
     'css',
     'json'
   },
