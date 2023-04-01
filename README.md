@@ -13,7 +13,7 @@
 
 * [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 * [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
-* [cosynvim](https://github.com/glepnir/cosynvim)
+* [dope](https://github.com/glepnir/dope)
 
 ## Example setups
 
