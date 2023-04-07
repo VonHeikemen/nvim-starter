@@ -122,7 +122,6 @@ lazy.setup({
   -- Utilities
   {'moll/vim-bbye'},
   {'nvim-lua/plenary.nvim'},
-  {'editorconfig/editorconfig-vim'},
   {'akinsho/toggleterm.nvim'},
 })
 
@@ -214,6 +213,7 @@ require('nvim-treesitter.configs').setup({
     'tsx',
     'lua',
     'vim',
+    'vimdoc',
     'css',
     'json'
   },
