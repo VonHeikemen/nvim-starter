@@ -228,7 +228,6 @@ require('nvim-treesitter.configs').setup({
     'tsx',
     'lua',
     'vim',
-    'help',
     'css',
     'json'
   },
