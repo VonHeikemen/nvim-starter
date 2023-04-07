@@ -28,6 +28,7 @@ Plugin.opts = {
     'tsx',
     'lua',
     'vim',
+    'vimdoc',
     'css',
     'json'
   },
