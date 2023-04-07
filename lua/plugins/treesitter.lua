@@ -28,7 +28,6 @@ Plugin.opts = {
     'tsx',
     'lua',
     'vim',
-    'help',
     'css',
     'json'
   },
