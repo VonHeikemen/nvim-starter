@@ -133,7 +133,6 @@ Leader key: `Space`.
 | [vim-repeat](https://github.com/tpope/vim-repeat) | Add "repeat" support for plugins. |
 | [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
-| [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) | Add support for [.editorconfig](https://editorconfig.org/) file. |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Manage terminal windows easily. |
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | Portable package manager for Neovim. |
 | [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Integrates nvim-lspconfig and mason.nvim. |
