@@ -60,8 +60,8 @@ Leader key: `Space`.
 | Normal | `<leader>h` | Go to first non empty character in line. |
 | Normal | `<leader>l` | Go to last non empty character in line. |
 | Normal | `<leader>a` | Select all text. |
-| Normal | `cp` | Copy selected text to clipboard. |
-| Normal | `cv` | Paste clipboard content. |
+| Normal | `gy` | Copy selected text to clipboard. |
+| Normal | `gp` | Paste clipboard content. |
 | Normal | `<leader>w` | Save file. |
 | Normal | `<leader>bq` | Close current buffer. |
 | Normal | `<leader>bc` | Close current buffer while preserving the window layout. |
