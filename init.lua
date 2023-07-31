@@ -126,10 +126,7 @@ lazy.setup({
 
   -- LSP support
   {'neovim/nvim-lspconfig'},
-  {
-    'williamboman/mason.nvim',
-    build = function() pcall(vim.cmd, 'MasonUpdate') end,
-  },
+  {'williamboman/mason.nvim'},
   {'williamboman/mason-lspconfig.nvim'},
 
   -- Autocomplete
