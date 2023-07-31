@@ -6,12 +6,13 @@ Plugin.dependencies =  {
   {'williamboman/mason-lspconfig.nvim', lazy = true},
   {
     'williamboman/mason.nvim',
-    cmd = {'Mason', 'LspInstall', 'LspUnInstall'},
+    cmd = 'Mason',
+    lazy = true,
     config = function() user.setup_mason() end
   },
 }
 
-Plugin.cmd = 'LspInfo'
+Plugin.cmd = {'LspInfo', 'LspInstall', 'LspUnInstall'}
 
 Plugin.event = {'BufReadPre', 'BufNewFile'}
 
@@ -70,33 +71,6 @@ function Plugin.config()
     callback = user.on_attach
   })
 
-  -- See :help mason-lspconfig-dynamic-server-setup
-  require('mason-lspconfig').setup_handlers({
-    function(server)
-      -- See :help lspconfig-setup
-      lspconfig[server].setup({})
-    end,
-    ['tsserver'] = function()
-      lspconfig.tsserver.setup({
-        settings = {
-          completions = {
-            completeFunctionCalls = true
-          }
-        }
-      })
-    end,
-    ['lua_ls'] = function()
-      require('plugins.lsp.lua_ls')
-    end
-  })
-end
-
-function user.setup_mason()
-  -- See :help mason-settings
-  require('mason').setup({
-    ui = {border = 'rounded'}
-  })
-
   -- See :help mason-lspconfig-settings
   require('mason-lspconfig').setup({
     ensure_installed = {
@@ -105,6 +79,25 @@ function user.setup_mason()
       'html',
       'cssls',
       'lua_ls',
+    },
+    handlers = {
+      -- See :help mason-lspconfig-dynamic-server-setup
+      function(server)
+        -- See :help lspconfig-setup
+        lspconfig[server].setup({})
+      end,
+      ['tsserver'] = function()
+        lspconfig.tsserver.setup({
+          settings = {
+            completions = {
+              completeFunctionCalls = true
+            }
+          }
+        })
+      end,
+      ['lua_ls'] = function()
+        require('plugins.lsp.lua_ls')
+      end
     }
   })
 end
@@ -127,15 +120,17 @@ function user.on_attach()
   bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
   bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
   bufmap({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
+  bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
   bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
   bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
   bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+end
 
-  bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-  bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-
-  -- if using Neovim v0.8 uncomment this
-  -- bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+function user.setup_mason()
+   -- See :help mason-settings
+  require('mason').setup({
+    ui = {border = 'rounded'}
+  }) 
 end
 
 return Plugin
