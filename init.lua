@@ -424,25 +424,6 @@ cmp.setup({
 
 
 ---
--- Mason.nvim
----
--- See :help mason-settings
-require('mason').setup({
-  ui = {border = 'rounded'}
-})
-
--- See :help mason-lspconfig-settings
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'tsserver',
-    'eslint',
-    'html',
-    'cssls'
-  }
-})
-
-
----
 -- LSP config
 ---
 -- See :help lspconfig-global-defaults
@@ -516,15 +497,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
     bufmap({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
+    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
     bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-
-    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-    bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-
-    -- if using Neovim v0.8 uncomment this
-    -- bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
   end
 })
 
@@ -532,20 +508,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
 ---
 -- LSP servers
 ---
--- See :help mason-lspconfig-dynamic-server-setup
-require('mason-lspconfig').setup_handlers({
-  function(server)
-    -- See :help lspconfig-setup
-    lspconfig[server].setup({})
-  end,
-  ['tsserver'] = function()
-    lspconfig.tsserver.setup({
-      settings = {
-        completions = {
-          completeFunctionCalls = true
+-- See :help mason-settings
+require('mason').setup({
+  ui = {border = 'rounded'}
+})
+
+-- See :help mason-lspconfig-settings
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    'eslint',
+    'html',
+    'cssls'
+  },
+  -- See :help mason-lspconfig.setup_handlers()
+  handlers = {
+    function(server)
+      -- See :help lspconfig-setup
+      lspconfig[server].setup({})
+    end,
+    ['tsserver'] = function()
+      lspconfig.tsserver.setup({
+        settings = {
+          completions = {
+            completeFunctionCalls = true
+          }
         }
-      }
-    })
-  end
+      })
+    end,
+  }
 })
 
