@@ -3,13 +3,7 @@ local user = {}
 
 Plugin.dependencies =  {
   {'hrsh7th/cmp-nvim-lsp'},
-  {'williamboman/mason-lspconfig.nvim', lazy = true},
-  {
-    'williamboman/mason.nvim',
-    cmd = 'Mason',
-    lazy = true,
-    config = function() user.setup_mason() end
-  },
+  {'williamboman/mason-lspconfig.nvim'},
 }
 
 Plugin.cmd = {'LspInfo', 'LspInstall', 'LspUnInstall'}
@@ -124,13 +118,6 @@ function user.on_attach()
   bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
   bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
   bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-end
-
-function user.setup_mason()
-   -- See :help mason-settings
-  require('mason').setup({
-    ui = {border = 'rounded'}
-  }) 
 end
 
 return Plugin
