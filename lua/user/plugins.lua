@@ -15,11 +15,17 @@ function lazy.install(path)
 end
 
 function lazy.setup(plugins)
+  if vim.g.plugins_ready then
+    return
+  end
+
   -- You can "comment out" the line below after lazy.nvim is installed
   lazy.install(lazy.path)
 
   vim.opt.rtp:prepend(lazy.path)
+
   require('lazy').setup(plugins, lazy.opts)
+  vim.g.plugins_ready = true
 end
 
 lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
