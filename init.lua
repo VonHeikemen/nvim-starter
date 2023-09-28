@@ -104,7 +104,7 @@ lazy.setup({
   {'kyazdani42/nvim-web-devicons'},
   {'nvim-lualine/lualine.nvim'},
   {'akinsho/bufferline.nvim'},
-  {'lukas-reineke/indent-blankline.nvim'},
+  {'lukas-reineke/indent-blankline.nvim', version = '3.x'},
 
   -- File explorer
   {'kyazdani42/nvim-tree.lua'},
@@ -235,13 +235,15 @@ require('Comment').setup({})
 ---
 -- Indent-blankline
 ---
--- See :help indent-blankline-setup
-require('indent_blankline').setup({
-  char = '▏',
-  show_trailing_blankline_indent = false,
-  show_first_indent_level = false,
-  use_treesitter = true,
-  show_current_context = false
+-- See :help ibl.setup()
+require('ibl').setup({
+  enabled = true,
+  scope = {
+    enabled = false,
+  },
+  indent = {
+    char = '▏',
+  }
 })
 
 
