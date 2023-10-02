@@ -13,10 +13,12 @@
 
 * [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 * [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+* [tinyvim](https://github.com/NvChad/tinyvim)
 * [dope](https://github.com/glepnir/dope)
 
 ## Example setups
 
+* [user-plugins](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins): Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
 * [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
 * [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
 * [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
