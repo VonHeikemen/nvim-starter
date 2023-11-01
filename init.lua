@@ -427,19 +427,6 @@ cmp.setup({
 
 
 ---
--- LSP config
----
--- See :help lspconfig-global-defaults
-local lspconfig = require('lspconfig')
-local lsp_defaults = lspconfig.util.default_config
-
-lsp_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lsp_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
-)
-
----
 -- Diagnostic customization
 ---
 local sign = function(opts)
@@ -517,16 +504,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- LSP servers
 ---
 
+local lspconfig = require('lspconfig')
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 -- Prevent multiple instance of lsp servers
 -- if file is sourced again
 if vim.g.lsp_setup_ready == nil then
   vim.g.lsp_setup_ready = true
 
   -- See :help lspconfig-setup
-  lspconfig.html.setup({})
-  lspconfig.cssls.setup({})
-  lspconfig.eslint.setup({})
+  lspconfig.html.setup({capabilities = lsp_capabilities,})
+  lspconfig.cssls.setup({capabilities = lsp_capabilities,})
+  lspconfig.eslint.setup({capabilities = lsp_capabilities,})
   lspconfig.tsserver.setup({
+    capabilities = lsp_capabilities,
     settings = {
       completions = {
         completeFunctionCalls = true
