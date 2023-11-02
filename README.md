@@ -12,7 +12,7 @@
 ## Other template configurations
 
 * [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
-* [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+* [Launch.nvim](https://github.com/LunarVim/Launch.nvim)
 * [tinyvim](https://github.com/NvChad/tinyvim)
 * [dope](https://github.com/glepnir/dope)
 
@@ -22,7 +22,7 @@
 * [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
 * [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
 * [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
-* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light): This setup is focused on having basic features with little boilerplate. One file with 100 lines of code.
+* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light): This setup is focused on having basic features with little boilerplate. One file with 104 lines of code.
 
 ## Learn how to configure Neovim
 
@@ -34,7 +34,6 @@
 
 ## Videos
 
-* [Opinionated setup guide (for mac or linux)](https://www.youtube.com/watch?v=vdn_pKJUda8)
 * [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
 * [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
 * [Vim As Your Editor - Introduction](https://www.youtube.com/watch?v=X6AR2RMB5tE) 
