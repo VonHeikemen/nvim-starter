@@ -35,6 +35,7 @@ vim.keymap.set({'n', 'x'}, 'gp', '"+p') -- paste
 
 -- Delete text
 vim.keymap.set({'n', 'x'}, 'x', '"_x')
+vim.keymap.set({'n', 'x'}, 'X', '"_d')
 
 -- Commands
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
