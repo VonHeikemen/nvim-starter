@@ -254,7 +254,7 @@ require('Comment').setup({})
 ---
 -- See :help ibl.setup()
 require('ibl').setup({
-  enabled = false,
+  enabled = true,
   scope = {
     enabled = false,
   },
