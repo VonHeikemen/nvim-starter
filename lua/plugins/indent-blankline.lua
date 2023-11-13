@@ -8,7 +8,7 @@ Plugin.event = {'BufReadPost', 'BufNewFile'}
 
 -- See :help ibl.setup()
 Plugin.opts = {
-  enabled = false,
+  enabled = true,
   scope = {
     enabled = false,
   },
