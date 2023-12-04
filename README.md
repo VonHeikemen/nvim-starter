@@ -18,11 +18,11 @@
 
 ## Example setups
 
-* [user-plugins](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins): Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
-* [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
+* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light): This setup is focused on having basic features with little boilerplate. One file with 104 lines of code.
 * [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
 * [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
-* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light): This setup is focused on having basic features with little boilerplate. One file with 104 lines of code.
+* [user-plugins](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins): Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
+* [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
 
 ## Learn how to configure Neovim
 
@@ -34,12 +34,17 @@
 
 ## Videos
 
-* [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
-* [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
 * [Vim As Your Editor - Introduction](https://www.youtube.com/watch?v=X6AR2RMB5tE) 
 * [Vim As Your Editor - Horizontal Movements](https://youtu.be/5JGVtttuDQA) 
 * [Vim As Your Editor - Vertical Movements](https://www.youtube.com/watch?v=KfENDDEpCsI) 
+* [Understanding Neovim - Installation, creating init.lua](https://www.youtube.com/watch?v=87AXw9Quy9U)
+* [Understanding Neovim - Plugins, colorschemes](https://www.youtube.com/watch?v=87AXw9Quy9U)
+* [Understanding Neovim - "Proper structure"](https://www.youtube.com/watch?v=87AXw9Quy9U)
+* [Understanding Neovim - Treesitter](https://www.youtube.com/watch?v=kYXcxJxJVxQ) 
+* [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
+* [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
 * [Mastering The Macro Machine - Vimconf.live 2021](https://www.youtube.com/watch?v=ZMA6MghrpWM) 
 * [Neovim lua plugin from scratch](https://www.youtube.com/watch?v=n4Lp4cV8YR0)
 * [Neovim - Rust IDE](https://www.youtube.com/watch?v=gfQ6Ae4lvL0)
 * [Neovim - Setting up a Java IDE](https://www.youtube.com/watch?v=0q_MKUynUck)
+
