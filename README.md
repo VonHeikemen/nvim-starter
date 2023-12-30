@@ -41,6 +41,7 @@
 * [Understanding Neovim - Plugins, colorschemes](https://www.youtube.com/watch?v=87AXw9Quy9U)
 * [Understanding Neovim - "Proper structure"](https://www.youtube.com/watch?v=87AXw9Quy9U)
 * [Understanding Neovim - Treesitter](https://www.youtube.com/watch?v=kYXcxJxJVxQ) 
+* [Understanding Neovim - Lua syntax, leader key and Treesitter modules](https://www.youtube.com/watch?v=ff0GYrK3nT0) 
 * [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
 * [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
 * [Mastering The Macro Machine - Vimconf.live 2021](https://www.youtube.com/watch?v=ZMA6MghrpWM) 
