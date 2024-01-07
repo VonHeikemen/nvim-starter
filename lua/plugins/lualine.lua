@@ -1,7 +1,5 @@
 local Plugin = {'nvim-lualine/lualine.nvim'}
 
-Plugin.name = 'lualine'
-
 Plugin.event = 'VeryLazy'
 
 -- See :help lualine.txt

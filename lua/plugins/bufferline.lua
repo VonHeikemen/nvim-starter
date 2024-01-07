@@ -1,7 +1,5 @@
 local Plugin = {'akinsho/bufferline.nvim'}
 
-Plugin.name = 'bufferline'
-
 Plugin.event = 'VeryLazy'
 
 Plugin.opts = {
