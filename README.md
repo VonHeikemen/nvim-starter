@@ -15,14 +15,14 @@
 * [Launch.nvim](https://github.com/LunarVim/Launch.nvim)
 * [tinyvim](https://github.com/NvChad/tinyvim)
 * [dope](https://github.com/glepnir/dope)
+* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)
 
 ## Example setups
 
-* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light): This setup is focused on having basic features with little boilerplate. One file with 104 lines of code.
 * [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
 * [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
-* [user-plugins](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins): Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
 * [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
+* [user-plugins](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins): Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
 
 ## Learn how to configure Neovim
 
@@ -30,6 +30,7 @@
 * [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/tools/neovim-plugins-to-get-started/)
 * [Setup nvim-lspconfig + nvim-cmp](https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/)
 * [Move from init.vim to init.lua](https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/)
+* [A guide on Neovim's LSP client](https://vonheikemen.github.io/devlog/tools/neovim-lsp-client-guide/)
 * [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
 
 ## Videos
@@ -41,11 +42,10 @@
 * [Understanding Neovim - Plugins, colorschemes](https://www.youtube.com/watch?v=87AXw9Quy9U)
 * [Understanding Neovim - "Proper structure"](https://www.youtube.com/watch?v=87AXw9Quy9U)
 * [Understanding Neovim - Treesitter](https://www.youtube.com/watch?v=kYXcxJxJVxQ) 
-* [Understanding Neovim - Lua syntax, leader key and Treesitter modules](https://www.youtube.com/watch?v=ff0GYrK3nT0) 
+* [Understanding Neovim - Lua syntax and Treesitter modules](https://www.youtube.com/watch?v=ff0GYrK3nT0) 
+* [Understanding Neovim - vim options](https://www.youtube.com/watch?v=Cp0iap9u29c) 
 * [Neovim Builtin LSP Setup Guide](https://www.youtube.com/watch?v=puWgHa7k3SY) 
 * [Debugging in Neovim](https://www.youtube.com/watch?v=0moS8UHupGc)
 * [Mastering The Macro Machine - Vimconf.live 2021](https://www.youtube.com/watch?v=ZMA6MghrpWM) 
-* [Neovim lua plugin from scratch](https://www.youtube.com/watch?v=n4Lp4cV8YR0)
-* [Neovim - Rust IDE](https://www.youtube.com/watch?v=gfQ6Ae4lvL0)
-* [Neovim - Setting up a Java IDE](https://www.youtube.com/watch?v=0q_MKUynUck)
+* [Building a Neovim plugin (in lua) from scratch](https://www.youtube.com/watch?v=n4Lp4cV8YR0)
 
