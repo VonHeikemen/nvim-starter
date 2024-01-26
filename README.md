@@ -1,6 +1,6 @@
 # Neovim Starter
 
-Note: it seems like github is showing the same readme in all branches. If you got here after clicking a link from a different branch, go to the "instructions" link of the branch you wanted to visit.
+Note: it seems like github is showing the same readme in all branches. If you got here after clicking a link from a different branch, click on the `README.md` link that's in the list of folders and files.
 
 ## Configurations
 
