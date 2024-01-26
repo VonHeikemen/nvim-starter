@@ -1,13 +1,50 @@
 # Neovim Starter
 
+Note: it seems like github is showing the same readme in all branches. If you got here after clicking a link from a different branch, go to the "instructions" link of the branch you wanted to visit.
+
 ## Configurations
 
-* [00-minimal](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal): Small configuration without third party plugins.
-* [01-base](https://github.com/VonHeikemen/nvim-starter/tree/01-base): Small configuration that includes a plugin manager. It can provide a good base to start your own configuration.
-* [02-opinionated](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated): Opinionated configuration. It includes a combination of popular plugins. For the people who are looking to make Neovim their main editor but don't want to start from scratch. Plugins related to "code intellisense" are not included in this config.
-* [03-lsp](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp): Example configuration showing how to configure the built-in LSP client with autocompletion. It is based on `02-opinionated`.
-* [04-lsp-installer](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer): Same as `03-lsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers.
-* [05-modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular): Same as `04-lsp-installer` but everything is split in modules.
+### Minimal
+
+Small configuration without third party plugins.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/00-minimal)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/00-minimal/README.md)
+
+### Base
+
+Small configuration that includes a plugin manager. It can provide a good base to start your own configuration.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/01-base)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/01-base/README.md)
+
+### Opinionated
+
+Opinionated configuration. It includes a combination of popular plugins. For the people who are looking to make Neovim their main editor but don't want to start from scratch. Plugins related to "code intellisense" are not included in this config.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/02-opinionated)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/02-opinionated/README.md)
+
+### LSP
+
+Example configuration showing how to configure the built-in LSP client with autocompletion. It is based on `02-opinionated`.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/03-lsp)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/03-lsp/README.md)
+
+### LSP Installer
+
+Same as `lsp` but uses [mason.nvim](https://github.com/williamboman/mason.nvim) to install language servers.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/04-lsp-installer)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/04-lsp-installer/README.md)
+
+### Modular
+
+Same as `lsp installer` but everything is split in modules.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/05-modular)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/05-modular/README.md)
 
 ## Other template configurations
 
@@ -15,14 +52,43 @@
 * [Launch.nvim](https://github.com/LunarVim/Launch.nvim)
 * [tinyvim](https://github.com/NvChad/tinyvim)
 * [dope](https://github.com/glepnir/dope)
-* [light](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)
 
 ## Example setups
 
-* [lsp-cmp](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp): Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
-* [mason.nvim](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason): Minimal setup with mason.nvim.
-* [basic-lsp](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp): Example lua configuration showing one way to setup LSP servers without plugins.
-* [user-plugins](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins): Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
+### Light
+
+Minimal configuration focused on providing "basic features" with little boilerplate. With less than 200 lines of code: includes improved syntax highlight, a fuzzy finder and a ready made LSP setup with autocompletion.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/xx-light)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/xx-light/README.md)
+
+### lsp-cmp
+
+Minimal setup with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/xx-lsp-cmp)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/xx-lsp-cmp/README.md)
+
+### mason.nvim
+
+Minimal setup with mason.nvim.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/xx-mason)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/xx-mason/README.md)
+
+### LSP without plugins
+
+Example lua configuration showing one way to setup LSP servers without plugins.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/xx-basic-lsp)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/xx-basic-lsp/README.md)
+
+### User plugins
+
+Configuration without 3rd party plugins. Includes "small user plugins" to provide its features.
+
+* [Link to branch](https://github.com/VonHeikemen/nvim-starter/tree/xx-user-plugins)
+* [Instructions](https://github.com/VonHeikemen/nvim-starter/blob/xx-user-plugins/README.md)
 
 ## Learn how to configure Neovim
 
