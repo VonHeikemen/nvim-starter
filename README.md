@@ -41,6 +41,7 @@
   * [Lua syntax and Treesitter modules](https://www.youtube.com/watch?v=ff0GYrK3nT0) 
   * [vim options](https://www.youtube.com/watch?v=Cp0iap9u29c) 
   * [Language Server Protocol](https://www.youtube.com/watch?v=HL7b63Hrc8U) 
+  * [Mason.nvim](https://www.youtube.com/watch?v=UVcC5ifbXL8) 
 
 * Kickstart.nvim setup
   * [The Only Video You Need to Get Started with Neovim](https://www.youtube.com/watch?v=m8C0Cq9Uv9o) 
