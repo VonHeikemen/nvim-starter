@@ -2,16 +2,15 @@
 -- ==                           EDITOR SETTINGS                            == --
 -- ========================================================================== --
 
-vim.opt.number = true
-vim.opt.mouse = 'a'
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.wrap = true
-vim.opt.breakindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = false
+vim.o.number = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = false
+vim.o.wrap = true
+vim.o.breakindent = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = false
 
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 30
@@ -42,18 +41,24 @@ vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')
 vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 vim.keymap.set('n', '<leader><space>', '<cmd>buffers<cr>:buffer<Space>')
-vim.keymap.set('n', '<leader>e', '<cmd>Lexplore %:p:h<cr>')
-vim.keymap.set('n', '<leader>E', '<cmd>Lexplore<cr>')
+
+vim.keymap.set('n', '<leader>e', function()
+  if vim.bo.filetype == 'netrw' then
+    return '<cmd>close<cr>'
+  end
+
+  if vim.t.netrw_lexbufnr then
+    return '<cmd>Lexplore<cr>'
+  end
+
+  return '<cmd>Lexplore %:p:h<cr>'
+end, {expr = true, desc = 'Toggle file explorer'})
 
 local function netrw_mapping()
   local bufmap = function(lhs, rhs)
     local opts = {buffer = true, remap = true}
     vim.keymap.set('n', lhs, rhs, opts)
   end
-
-  -- close window
-  bufmap('<leader>e', ':Lexplore<cr>')
-  bufmap('<leader>E', ':Lexplore<cr>')
 
   -- Go back in history
   bufmap('H', 'u')
@@ -63,9 +68,6 @@ local function netrw_mapping()
 
   -- Open file/directory
   bufmap('l', '<cr>')
-
-  -- Open file/directory then close explorer
-  bufmap('L', '<cr>:Lexplore<CR>')
 
   -- Toggle dotfiles
   bufmap('.', 'gh')
