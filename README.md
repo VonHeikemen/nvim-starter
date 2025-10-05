@@ -8,11 +8,9 @@ All the code in this configuration is explained here:
 
 ## Requirements
 
-* Neovim v0.8 or greater.
+* Neovim v0.9.5 greater.
 * git.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
-
-[Here's the config compatible with Neovim v0.7](https://github.com/VonHeikemen/nvim-starter/tree/88f6afe64522afe5768f88e48ba28ede47aab744)
 
 ## Installation
 
@@ -21,7 +19,7 @@ All the code in this configuration is explained here:
 * Create an `init.lua` file in your system. Use this command if you don't know the specific location of Neovim's configuration folder.
 
 ```sh
-nvim --headless -c 'call mkdir(stdpath("config"), "p") | exe "edit" stdpath("config") . "/init.lua" | write | quit'
+nvim --headless -c 'exe "write ++p" stdpath("config") . "/init.lua"' -c 'quit'
 ```
 
 * Open your configuration file with Neovim.

@@ -2,16 +2,16 @@
 -- ==                           EDITOR SETTINGS                            == --
 -- ========================================================================== --
 
-vim.opt.number = true
-vim.opt.mouse = 'a'
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.wrap = true
-vim.opt.breakindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = false
+vim.o.number = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = false
+vim.o.wrap = true
+vim.o.breakindent = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = false
+vim.o.termguicolors = true
 
 
 -- ========================================================================== --
@@ -67,67 +67,51 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
 
-local lazy = {}
+local function ensure_mini(path)
+  local uv = vim.uv or vim.loop
+  local mini_path = path .. '/pack/deps/start/mini.nvim'
 
-function lazy.install(path)
-  if not vim.loop.fs_stat(path) then
-    print('Installing lazy.nvim....')
+  if not uv.fs_stat(mini_path) then
+    print('Installing mini.nvim....')
     vim.fn.system({
       'git',
       'clone',
       '--filter=blob:none',
-      'https://github.com/folke/lazy.nvim.git',
+      'https://github.com/nvim-mini/mini.nvim',
       '--branch=stable', -- latest stable release
-      path,
+      mini_path,
     })
+
+    vim.cmd('packadd mini.nvim | helptags ALL')
   end
 end
 
-function lazy.setup(plugins)
-  if vim.g.plugins_ready then
-    return
-  end
+local packpath = table.concat({
+  vim.fn.stdpath('data') --[[@as string]],
+  'site',
+}, '/')
 
-  -- You can "comment out" the line below after lazy.nvim is installed
-  lazy.install(lazy.path)
+-- You can "comment out" the line below after mini.nvim is installed
+ensure_mini(packpath)
 
-  vim.opt.rtp:prepend(lazy.path)
+-- See :help MiniDeps.config
+-- See :help MiniDeps.add
+local MiniDeps = require('mini.deps')
+MiniDeps.setup({})
 
-  require('lazy').setup(plugins, lazy.opts)
-  vim.g.plugins_ready = true
-end
-
-lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-lazy.opts = {}
-
-lazy.setup({
-  {'folke/tokyonight.nvim'},
-  {'kyazdani42/nvim-web-devicons'},
-  {'nvim-lualine/lualine.nvim'},
-})
-
+MiniDeps.add({source = 'folke/tokyonight.nvim'})
 
 -- ========================================================================== --
 -- ==                         PLUGIN CONFIGURATION                         == --
 -- ========================================================================== --
 
----
--- Colorscheme
----
-vim.opt.termguicolors = true
+-- Editor theme
 vim.cmd.colorscheme('tokyonight')
 
+-- See :help MiniIcons.config
+-- Change style to 'ascii' if you don't have a font with fancy icons
+require('mini.icons').setup({style = 'glyph'})
 
----
--- lualine.nvim (statusline)
----
-vim.opt.showmode = false
-require('lualine').setup({
-  options = {
-    icons_enabled = false,
-    theme = 'tokyonight',
-    component_separators = '|',
-    section_separators = '',
-  },
-})
+-- See :help MiniStatusline.config
+require('mini.statusline').setup({})
 
