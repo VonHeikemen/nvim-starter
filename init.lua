@@ -11,7 +11,6 @@ vim.o.breakindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = false
-vim.o.termguicolors = true
 
 
 -- ========================================================================== --
@@ -67,9 +66,14 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
 
-local function ensure_mini(path)
+local mini = {}
+
+mini.branch = 'main'
+mini.packpath = vim.fn.stdpath('data') .. '/site'
+
+function mini.require_deps()
   local uv = vim.uv or vim.loop
-  local mini_path = path .. '/pack/deps/start/mini.nvim'
+  local mini_path = mini.packpath .. '/pack/deps/start/mini.nvim'
 
   if not uv.fs_stat(mini_path) then
     print('Installing mini.nvim....')
@@ -78,34 +82,55 @@ local function ensure_mini(path)
       'clone',
       '--filter=blob:none',
       'https://github.com/nvim-mini/mini.nvim',
-      '--branch=stable', -- latest stable release
-      mini_path,
+      string.format('--branch=%s', mini.branch),
+      mini_path
     })
 
     vim.cmd('packadd mini.nvim | helptags ALL')
   end
+
+  local ok, deps = pcall(require, 'mini.deps')
+  if not ok then
+    return {}
+  end
+
+  return deps
 end
 
-local packpath = table.concat({
-  vim.fn.stdpath('data') --[[@as string]],
-  'site',
-}, '/')
-
--- You can "comment out" the line below after mini.nvim is installed
-ensure_mini(packpath)
+local MiniDeps = mini.require_deps()
+if not MiniDeps.setup then
+  return
+end
 
 -- See :help MiniDeps.config
--- See :help MiniDeps.add
-local MiniDeps = require('mini.deps')
-MiniDeps.setup({})
+MiniDeps.setup({
+  path = {
+    package = mini.packpath,
+  },
+})
 
-MiniDeps.add({source = 'folke/tokyonight.nvim'})
+-- See :help MiniDeps.add
+MiniDeps.add({
+  source = 'nvim-mini/mini.nvim',
+  checkout = mini.branch
+})
+
+MiniDeps.add('folke/tokyonight.nvim')
 
 -- ========================================================================== --
 -- ==                         PLUGIN CONFIGURATION                         == --
 -- ========================================================================== --
 
 -- Editor theme
+-- See :help tokyonight.nvim-tokyo-night-configuration
+require('tokyonight').setup({
+  styles = {
+    comments = {italic = false},
+    keywords = {italic = false},
+  },
+})
+
+vim.o.termguicolors = true
 vim.cmd.colorscheme('tokyonight')
 
 -- See :help MiniIcons.config
@@ -113,5 +138,6 @@ vim.cmd.colorscheme('tokyonight')
 require('mini.icons').setup({style = 'glyph'})
 
 -- See :help MiniStatusline.config
-require('mini.statusline').setup({})
+vim.o.showmode = false
+require('mini.statusline').setup({use_icons = true})
 
