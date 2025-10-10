@@ -2,38 +2,40 @@
 -- ==                           EDITOR SETTINGS                            == --
 -- ========================================================================== --
 
-vim.opt.number = true
-vim.opt.mouse = 'a'
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.wrap = true
-vim.opt.breakindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = false
-vim.opt.signcolumn = 'yes'
+vim.o.number = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = false
+vim.o.wrap = true
+vim.o.breakindent = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = false
+
+-- ========================================================================== --
+-- ==                             KEYBINDINGS                              == --
+-- ========================================================================== --
 
 -- Space as leader key
 vim.g.mapleader = ' '
 
 -- Shortcuts
-vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^')
-vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_')
-vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
+vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^', {desc = 'Go to first character'})
+vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_', {desc = 'Go to last character'})
+vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>', {desc = 'Select all text'})
 
 -- Basic clipboard interaction
-vim.keymap.set({'n', 'x'}, 'gy', '"+y') -- copy
-vim.keymap.set({'n', 'x'}, 'gp', '"+p') -- paste
+vim.keymap.set({'n', 'x'}, 'gy', '"+y', {desc = 'Copy to clipboard'})
+vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste from clipboard'})
 
 -- Delete text
-vim.keymap.set({'n', 'x'}, 'x', '"_x')
-vim.keymap.set({'n', 'x'}, 'X', '"_d')
+vim.keymap.set({'n', 'x'}, 'x', '"_x', {desc = 'Delete character'})
+vim.keymap.set({'n', 'x'}, 'X', '"_d', {desc = 'Delete operator'})
 
 -- Commands
-vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
-vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')
-vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', {desc = 'Save file'})
+vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>', {desc = 'Delete buffer'})
+vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>', {desc = 'Go to most recent buffer'})
 
 
 -- ========================================================================== --
@@ -63,121 +65,159 @@ vim.api.nvim_create_autocmd('FileType', {
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
 
-local lazy = {}
+local mini = {}
 
-function lazy.install(path)
-  if not vim.loop.fs_stat(path) then
-    print('Installing lazy.nvim....')
+mini.branch = 'main'
+mini.packpath = vim.fn.stdpath('data') .. '/site'
+
+function mini.require_deps()
+  local uv = vim.uv or vim.loop
+  local mini_path = mini.packpath .. '/pack/deps/start/mini.nvim'
+
+  if not uv.fs_stat(mini_path) then
+    print('Installing mini.nvim....')
     vim.fn.system({
       'git',
       'clone',
       '--filter=blob:none',
-      'https://github.com/folke/lazy.nvim.git',
-      '--branch=stable', -- latest stable release
-      path,
+      'https://github.com/nvim-mini/mini.nvim',
+      string.format('--branch=%s', mini.branch),
+      mini_path
     })
-  end
-end
 
-function lazy.setup(plugins)
-  if vim.g.plugins_ready then
-    return
+    vim.cmd('packadd mini.nvim | helptags ALL')
   end
 
-  -- You can "comment out" the line below after lazy.nvim is installed
-  lazy.install(lazy.path)
+  local ok, deps = pcall(require, 'mini.deps')
+  if not ok then
+    return {}
+  end
 
-  vim.opt.rtp:prepend(lazy.path)
-
-  require('lazy').setup(plugins, lazy.opts)
-  vim.g.plugins_ready = true
+  return deps
 end
 
-lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-lazy.opts = {}
+local MiniDeps = mini.require_deps()
+if not MiniDeps.setup then
+  return
+end
 
-lazy.setup({
-  -- Theming
-  {'folke/tokyonight.nvim'},
-  {'joshdick/onedark.vim'},
-  {'tanvirtin/monokai.nvim'},
-  {'lunarvim/darkplus.nvim'},
-  {'kyazdani42/nvim-web-devicons'},
-  {'nvim-lualine/lualine.nvim'},
-  {'akinsho/bufferline.nvim'},
-  {'lukas-reineke/indent-blankline.nvim', version = '3.x'},
-
-  -- File explorer
-  {'kyazdani42/nvim-tree.lua'},
-
-  -- Fuzzy finder
-  {'nvim-telescope/telescope.nvim', branch = '0.1.x'},
-  {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
-
-  -- Git
-  {'lewis6991/gitsigns.nvim'},
-  {'tpope/vim-fugitive'},
-
-  -- Code manipulation
-  {'nvim-treesitter/nvim-treesitter'},
-  {'nvim-treesitter/nvim-treesitter-textobjects'},
-  {'numToStr/Comment.nvim'},
-  {'tpope/vim-surround'},
-  {'wellle/targets.vim'},
-  {'tpope/vim-repeat'},
-
-  -- Utilities
-  {'moll/vim-bbye'},
-  {'nvim-lua/plenary.nvim'},
-  {'akinsho/toggleterm.nvim'},
+-- See :help MiniDeps.config
+MiniDeps.setup({
+  path = {
+    package = mini.packpath,
+  },
 })
 
+MiniDeps.add('folke/tokyonight.nvim')
+MiniDeps.add('folke/snacks.nvim')
+MiniDeps.add('akinsho/bufferline.nvim')
+MiniDeps.add('tpope/vim-repeat')
+
+-- See :help MiniDeps.add
+MiniDeps.add({
+  source = 'nvim-mini/mini.nvim',
+  checkout = mini.branch,
+})
+MiniDeps.add({
+  source = 'nvim-treesitter/nvim-treesitter',
+  checkout = 'v0.10.0',
+})
+MiniDeps.add({
+  source = 'nvim-treesitter/nvim-treesitter-textobjects',
+  checkout = 'master',
+})
 
 -- ========================================================================== --
 -- ==                         PLUGIN CONFIGURATION                         == --
 -- ========================================================================== --
 
----
--- Colorscheme
----
-vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight')
+if vim.uv == nil then
+  vim.uv = vim.loop
+end
 
-
----
--- vim-bbye
----
-vim.keymap.set('n', '<leader>bc', '<cmd>Bdelete<CR>')
-
-
----
--- lualine.nvim (statusline)
----
-vim.opt.showmode = false
-
--- See :help lualine.txt
-require('lualine').setup({
-  options = {
-    theme = 'tokyonight',
-    icons_enabled = true,
-    component_separators = '|',
-    section_separators = '',
-    disabled_filetypes = {
-      statusline = {'NvimTree'}
-    }
+-- See :help tokyonight.nvim-tokyo-night-configuration
+require('tokyonight').setup({
+  styles = {
+    comments = {italic = false},
+    keywords = {italic = false},
   },
 })
 
+vim.o.termguicolors = true
+vim.cmd.colorscheme('tokyonight')
 
----
--- bufferline
----
+-- See :help MiniIcons.config
+-- Change style to 'ascii' if you don't have a font with fancy icons
+require('mini.icons').setup({style = 'glyph'})
+
+-- See :help MiniStatusline.config
+vim.o.showmode = false
+require('mini.statusline').setup({use_icons = true})
+
+-- See :help MiniNotify.config
+require('mini.notify').setup({
+  lsp_progress = {
+    enable = false,
+  },
+})
+
+-- See :help MiniComment.config
+require('mini.comment').setup({})
+
+-- See :help MiniGit.config
+require('mini.git').setup({})
+
+-- See :help MiniDiff.config
+vim.o.signcolumn = 'yes'
+require('mini.diff').setup({
+  view = {
+    style = 'sign',
+    signs = {
+      add = '▎',
+      change = '▎',
+      delete = '➤',
+    },
+  },
+})
+
+-- See :help MiniClue.config
+local mini_clue = require('mini.clue')
+
+mini_clue.setup({
+  window = {
+    delay = 600,
+    config = {
+      width = 50,
+    },
+  },
+  triggers = {
+    {mode = 'n', keys = '['},
+    {mode = 'n', keys = ']'},
+    {mode = 'n', keys = 'g'},
+    {mode = 'x', keys = 'g'},
+    {mode = 'n', keys = 'z'},
+    {mode = 'x', keys = 'z'},
+    {mode = 'n', keys = '<C-w>'},
+    {mode = 'i', keys = '<C-x>'},
+    {mode = 'n', keys = '<leader>'},
+    {mode = 'x', keys = '<leader>'},
+  },
+  clues = {
+    mini_clue.gen_clues.g(),
+    mini_clue.gen_clues.z(),
+    mini_clue.gen_clues.windows(),
+    mini_clue.gen_clues.builtin_completion(),
+    {mode = 'n', keys = '<leader>f', desc = '+Fuzzy finders'},
+    {mode = 'n', keys = '<leader>b', desc = '+Buffers'},
+  }
+})
+
 -- See :help bufferline-settings
 require('bufferline').setup({
   options = {
     mode = 'buffers',
     offsets = {
-      {filetype = 'NvimTree'}
+      {filetype = 'snacks_layout_box'}
     },
   },
   -- :help bufferline-highlights
@@ -192,12 +232,11 @@ require('bufferline').setup({
   }
 })
 
+vim.keymap.set('n', 'gt', '<cmd>BufferLinePick<cr>', {desc = 'Pick a visible tab'})
 
----
--- Treesitter
----
 -- See :help nvim-treesitter-modules
 require('nvim-treesitter.configs').setup({
+  auto_install = true,
   highlight = {
     enable = true,
   },
@@ -215,101 +254,85 @@ require('nvim-treesitter.configs').setup({
     },
   },
   ensure_installed = {
-    'javascript',
-    'typescript',
-    'tsx',
     'lua',
     'vim',
     'vimdoc',
-    'css',
-    'json'
   },
 })
 
+-- docs: https://github.com/folke/snacks.nvim/blob/main/README.md
+local Snacks = require('snacks')
 
----
--- Comment.nvim
----
-require('Comment').setup({})
-
-
----
--- Indent-blankline
----
--- See :help ibl.setup()
-require('ibl').setup({
-  enabled = true,
-  scope = {
-    enabled = false,
-  },
+Snacks.setup({
   indent = {
+    enabled = true,
     char = '▏',
-  }
-})
-
-
----
--- Gitsigns
----
--- See :help gitsigns-usage
-require('gitsigns').setup({
-  signs = {
-    add = {text = '▎'},
-    change = {text = '▎'},
-    delete = {text = '➤'},
-    topdelete = {text = '➤'},
-    changedelete = {text = '▎'},
-  }
-})
-
-
----
--- Telescope
----
--- See :help telescope.builtin
-vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
-vim.keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<cr>')
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
-vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
-
-require('telescope').load_extension('fzf')
-
-
----
--- nvim-tree (File explorer)
----
--- See :help nvim-tree-setup
-require('nvim-tree').setup({
-  hijack_cursor = false,
-  on_attach = function(bufnr)
-    local bufmap = function(lhs, rhs, desc)
-      vim.keymap.set('n', lhs, rhs, {buffer = bufnr, desc = desc})
+  },
+  toggle = {
+    notify = false,
+  },
+  explorer = {
+    enabled = true,
+    replace_netrw = true,
+  },
+  input = {
+    enabled = true,
+    icon = '❯',
+  },
+  picker = {
+    enabled = true,
+    ui_select = true,
+    prompt = '❯ ',
+    formatters = {
+      file = {truncate = 78},
+    },
+  },
+  bigfile = {
+    -- Only use `bigfile` module on older Neovim versions
+    enabled = vim.fn.has('nvim-0.11') == 0,
+    notify = false,
+    size = 1024 * 1024, -- 1MB
+    setup = function(ctx)
+      vim.cmd('syntax clear')
+      vim.opt_local.syntax = 'OFF'
+      local buffer = vim.b[ctx.buf]
+      if buffer.ts_highlight then
+        vim.treesitter.stop(ctx.buf)
+      end
     end
-
-    -- :help nvim-tree.api
-    local api = require('nvim-tree.api')
-
-    -- default mappings
-    api.config.mappings.default_on_attach(bufnr)
-
-    bufmap('L', api.node.open.edit, 'Expand folder or go to file')
-    bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
-    bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
-  end
+  },
 })
 
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+-- docs: https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
+vim.keymap.set('n', '<leader>e', function()
+  Snacks.explorer()
+end, {desc = 'Toggle file explorer'})
 
+-- docs: https://github.com/folke/snacks.nvim/blob/main/docs/terminal.md
+vim.keymap.set({'n', 't'}, '<C-g>', function()
+  Snacks.terminal.toggle()
+end, {desc = 'Toggle terminal window'})
 
----
--- toggleterm
----
--- See :help toggleterm-roadmap
-require('toggleterm').setup({
-  open_mapping = '<C-g>',
-  direction = 'horizontal',
-  shade_terminals = true
-})
+-- docs: https://github.com/folke/snacks.nvim/blob/main/docs/toggle.md
+vim.keymap.set('n', '<leader>ti', function()
+  Snacks.toggle.indent():toggle()
+end, {desc = 'Toggle indent guides'})
+
+-- Close while preserving window layout
+-- docs: https://github.com/folke/snacks.nvim/blob/main/docs/bufdelete.md
+vim.keymap.set('n', '<leader>bc', function()
+  Snacks.bufdelete()
+end, {desc = 'Close buffer'})
+
+-- Fuzzy finders
+-- docs: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
+vim.keymap.set('n', '<leader><space>', function() Snacks.picker('buffers') end, {desc = 'Search open files'})
+vim.keymap.set('n', '<leader>ff', function() Snacks.picker('files') end, {desc = 'Search all files'})
+vim.keymap.set('n', '<leader>fh', function() Snacks.picker('recent') end, {desc = 'Search file history'})
+vim.keymap.set('n', '<leader>fg', function() Snacks.picker('grep') end, {desc = 'Search in project'})
+vim.keymap.set('n', '<leader>fd', function() Snacks.picker('diagnostics') end, {desc = 'Search diagnostics'})
+vim.keymap.set('n', '<leader>fs', function() Snacks.picker('lines') end, {desc = 'Buffer local search'})
+vim.keymap.set('n', '<leader>u', function() Snacks.picker('undo') end, {desc = 'Undo history'})
+vim.keymap.set('n', '<leader>/', function() Snacks.picker('pickers') end, {desc = 'Search picker'})
+vim.keymap.set('n', '<leader>?', function() Snacks.picker('keymaps') end, {desc = 'Search keymaps'})
 

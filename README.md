@@ -9,24 +9,16 @@ All the code in this configuration is explained in these two articles:
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/tools/neovim-plugins-to-get-started/)
 
-Autocompletion and "code intellisense" is omitted on this configuration. Do your research and add the plugins you think fit best with your workflow. Here are a few resources you might want to check.
-
-* [Setup nvim-lspconfig + nvim-cmp](https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/)
-* [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
-* [coc.nvim](https://github.com/neoclide/coc.nvim)
-* [vim-lsp](https://github.com/prabirshrestha/vim-lsp)
+Autocompletion and "code intellisense" is omitted on this configuration.
 
 ## Requirements
 
-* Neovim v0.8 or greater.
+* Neovim v0.9.5 or greater.
 * git.
 * A `C` compiler. Can be `gcc`, `tcc` or `zig`.
-* [make](https://www.gnu.org/software/make/), the build tool.
 * (optional) [ripgrep](https://github.com/BurntSushi/ripgrep). Improves project wide search speed.
 * (optional) [fd](https://github.com/sharkdp/fd). Improves file search speed.
 * (optional) A patched font to display icons. I hear [nerdfonts](https://www.nerdfonts.com/) has a good collection.
-
-[Here's the config compatible with Neovim v0.7](https://github.com/VonHeikemen/nvim-starter/tree/f82b01455afd4402cf393ff0b26260c47524e70a).
 
 ## Installation
 
@@ -35,76 +27,55 @@ Autocompletion and "code intellisense" is omitted on this configuration. Do your
 * Create an `init.lua` file in your system. Use this command if you don't know the specific location of Neovim's configuration folder.
 
 ```sh
-nvim --headless -c 'call mkdir(stdpath("config"), "p") | exe "edit" stdpath("config") . "/init.lua" | write | quit'
-```
-
-* Open your configuration file with Neovim.
-
-```sh
-nvim -c 'edit $MYVIMRC'
+nvim --headless -c 'exe "write ++p" stdpath("config") . "/init.lua"' -c 'quit'
 ```
 
 * Copy the content of `init.lua` in this repository into your own `init.lua`.
 
-* Next time you start Neovim all plugins will be downloaded automatically. Wait until plugins are installed then restart Neovim.
-
-### Plugins directory
-
-Your plugins will be installed in a separate directory from your configuration. The location of this directory depends on your operating system and environment variables, so you'll need to execute this command to know where that is.
-
-```sh
-nvim --headless -c 'echo stdpath("data") . "/lazy/lazy.nvim" | quit'
-```
+* Open Neovim, use the command `nvim` in your terminal. When Neovim starts all plugins will be downloaded automatically.
 
 ## Keybindings
 
 Leader key: `Space`.
 
-| Mode | Key | Action |
-| --- | --- | --- |
-| Normal | `<leader>h` | Go to first non empty character in line. |
-| Normal | `<leader>l` | Go to last non empty character in line. |
-| Normal | `<leader>a` | Select all text. |
-| Normal | `gy` | Copy selected text to clipboard. |
-| Normal | `gp` | Paste clipboard content. |
-| Normal | `<leader>w` | Save file. |
-| Normal | `<leader>bq` | Close current buffer. |
-| Normal | `<leader>bc` | Close current buffer while preserving the window layout. |
-| Normal | `<leader>bl` | Go to last active buffer. |
-| Normal | `<leader>?` | Search oldfiles history. |
-| Normal | `<leader><space>` | Search open buffers. |
-| Normal | `<leader>ff` | Find file in current working directory. |
-| Normal | `<leader>fg` | Search pattern in current working directory. Interactive "grep search". |
-| Normal | `<leader>fd` | Search diagnostics in current file. |
-| Normal | `<leader>fs` | Search pattern in current file. |
-| Normal | `<leader>e` | Open file explorer. |
-| Normal | `<Ctrl-g>` | Toggle the builtin terminal. |
+| Mode     | Key               | Action                                                                  |
+| ---      | ---               | ---                                                                     |
+| Normal   | `<leader>h`       | Go to first non empty character in line.                                |
+| Normal   | `<leader>l`       | Go to last non empty character in line.                                 |
+| Normal   | `<leader>a`       | Select all text.                                                        |
+| Normal   | `gy`              | Copy selected text to clipboard.                                        |
+| Normal   | `gp`              | Paste clipboard content.                                                |
+| Normal   | `x`               | Delete character under cursor without modifying any register.           |
+| Operator | `X`               | Delete operator, like `d` but it doesn't modify any register.           |
+| Normal   | `<leader>w`       | Save file.                                                              |
+| Normal   | `<leader>bq`      | Close current buffer.                                                   |
+| Normal   | `<leader>bc`      | Close current buffer while preserving the window layout.                |
+| Normal   | `<leader>bl`      | Go to last active buffer.                                               |
+| Normal   | `gcc`             | Toggle comment in current line.                                         |
+| Operator | `gc`              | Toggle comment in text.                                                 |
+| Normal   | `gt`              | Pick a visible tab.                                                     |
+| Normal   | `<leader><space>` | Search open buffers.                                                    |
+| Normal   | `<leader>ff`      | Find file in current working directory.                                 |
+| Normal   | `<leader>fh`      | Search oldfiles history.                                                |
+| Normal   | `<leader>fg`      | Search pattern in current working directory. Interactive "grep search". |
+| Normal   | `<leader>fd`      | Search diagnostics in current file.                                     |
+| Normal   | `<leader>fs`      | Search pattern in current file.                                         |
+| Normal   | `<leader>u`       | Search undo history.                                                    |
+| Normal   | `<leader>?`       | Search keymaps.                                                         |
+| Normal   | `<leader>/`       | Search all available snack pickers.                                     |
+| Normal   | `<leader>e`       | Open file explorer.                                                     |
+| Normal   | `<Ctrl-g>`        | Toggle a terminal window.                                               |
+| Terminal | `<Esc><Esc>`      | Pressing `Escape` twice quickly goes back to normal mode.               |
 
 ## Plugin list
 
-| Name | Description  |
-| --- | --- |
-| [lazy.nvim](https://github.com/folke/lazy.nvim) | Plugin manager. |
-| [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | Collection of colorscheme for Neovim. |
-| [onedark.vim](https://github.com/joshdick/onedark.vim) | Colorscheme based on Atom's default theme. |
-| [monokai.nvim](https://github.com/tanvirtin/monokai.nvim) | Colorscheme based on Sublime text's default theme. |
-| [darkplus.nvim](https://github.com/lunarvim/darkplus.nvim) | Colorscheme based on VS Code's default theme. |
-| [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons) | Helper functions to show icons. |
-| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Pretty statusline. |
-| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | Pretty tabline. |
-| [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Shows indent guides in current file. |
-| [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) | File explorer. |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder. |
-| [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) | Extension for telescope. Allows fzf-like syntax in searches. |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Shows indicators in gutter based on file changes detected by git. |
-| [vim-fugitive](https://github.com/tpope/vim-fugitive) | Git integration into Neovim/Vim. |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Configures treesitter parsers. Provides modules to manipulate code. |
-| [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | Creates textobjects based on treesitter queries. |
-| [Comment.nvim](https://github.com/numToStr/Comment.nvim) | Toggle comments. |
-| [vim-surround](https://github.com/tpope/vim-surround) | Add, remove, change "surroundings". |
-| [targets.vim](https://github.com/wellle/targets.vim) | Creates new textobjects. |
-| [vim-repeat](https://github.com/tpope/vim-repeat) | Add "repeat" support for plugins. |
-| [vim-bbye](https://github.com/moll/vim-bbye) | Close buffers without closing the current window. |
-| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Collection of modules. Used internaly by other plugins. |
-| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Handle terminal windows easily. |
+| Name                                                                                          | Description                                                           |
+| ---                                                                                           | ---                                                                   |
+| [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)                                   | A dark theme for Neovim.                                              |
+| [mini.nvim](https://github.com/nvim-mini/mini.nvim)                                           | Collection of independent lua modules that enhance Neovim's features. |
+| [snacks.nvim](https://github.com/folke/snacks.nvim)                                           | Collection of QoL plugins.                                            |
+| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)                                 | Pretty tabline.                                                       |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)                         | Configures treesitter parsers. Provides modules to manipulate code.   |
+| [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | Creates textobjects based on treesitter queries.                      |
+| [vim-repeat](https://github.com/tpope/vim-repeat)                                             | Add "repeat" support for plugins.                                     |
 
