@@ -1,4 +1,6 @@
-local load = function(mod)
+-- This function makes possible for us to "reload"
+-- our modules using `:source $MYVIMRC` command
+local function load(mod)
   package.loaded[mod] = nil
   require(mod)
 end
@@ -6,6 +8,5 @@ end
 load('user.settings')
 load('user.commands')
 load('user.keymaps')
-require('user.plugins')
+load('user.deps')
 
-pcall(vim.cmd.colorscheme, 'tokyonight')
