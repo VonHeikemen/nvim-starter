@@ -247,9 +247,6 @@ Snacks.setup({
     enabled = true,
     char = '▏',
   },
-  toggle = {
-    notify = false,
-  },
   explorer = {
     enabled = true,
     replace_netrw = true,
