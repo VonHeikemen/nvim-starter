@@ -251,12 +251,16 @@ local ts = vim.treesitter
 local ts_filetypes = vim.iter(parsers)
   :map(ts.language.get_filetypes)
   :flatten()
+  :fold({}, function(tbl, v)
+    tbl[v] = true
+    return tbl
+  end)
 
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'enable treesitter',
   callback = function(event)
     local ft = event.match
-    if not ts_filetypes:find(ft) then
+    if ts_filetypes[ft] == nil then
       return
     end
 
