@@ -122,10 +122,6 @@ MiniDeps.add({
   source = 'nvim-treesitter/nvim-treesitter',
   checkout = 'v0.10.0',
 })
-MiniDeps.add({
-  source = 'nvim-treesitter/nvim-treesitter-textobjects',
-  checkout = 'master',
-})
 
 -- ========================================================================== --
 -- ==                         PLUGIN CONFIGURATION                         == --
@@ -155,11 +151,7 @@ vim.o.showmode = false
 require('mini.statusline').setup({use_icons = true})
 
 -- See :help MiniNotify.config
-require('mini.notify').setup({
-  lsp_progress = {
-    enable = false,
-  },
-})
+require('mini.notify').setup({})
 
 -- See :help MiniComment.config
 require('mini.comment').setup({})
@@ -240,19 +232,6 @@ require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,
   },
-  -- :help nvim-treesitter-textobjects-modules
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      }
-    },
-  },
   ensure_installed = {
     'lua',
     'vim',
@@ -303,6 +282,9 @@ Snacks.setup({
   },
 })
 
+-- Disable indent guide animation
+vim.g.snacks_animate = false
+
 -- docs: https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
 vim.keymap.set('n', '<leader>e', function()
   Snacks.explorer()
@@ -312,11 +294,6 @@ end, {desc = 'Toggle file explorer'})
 vim.keymap.set({'n', 't'}, '<C-g>', function()
   Snacks.terminal.toggle()
 end, {desc = 'Toggle terminal window'})
-
--- docs: https://github.com/folke/snacks.nvim/blob/main/docs/toggle.md
-vim.keymap.set('n', '<leader>ti', function()
-  Snacks.toggle.indent():toggle()
-end, {desc = 'Toggle indent guides'})
 
 -- Close while preserving window layout
 -- docs: https://github.com/folke/snacks.nvim/blob/main/docs/bufdelete.md
