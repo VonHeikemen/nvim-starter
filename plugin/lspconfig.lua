@@ -19,7 +19,7 @@ MiniDeps.now(function()
   require('mason-lspconfig').setup({
     automatic_enable = false,
     ensure_installed = {
-      'lua_ls'
+      'lua_ls',
       'rust_analyzer',
     },
   })
