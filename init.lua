@@ -246,31 +246,46 @@ vim.keymap.set('n', 'gt', '<cmd>BufferLinePick<cr>', {desc = 'Pick a visible tab
 -- NOTE: the list of supported parsers is in the documentation
 -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
 local parsers = {'lua', 'vim', 'vimdoc'}
-require('nvim-treesitter').install(parsers)
 
 local ts = vim.treesitter
+local ts_installed = require('nvim-treesitter').get_installed()
+
 local ts_filetypes = vim.iter(parsers)
   :map(ts.language.get_filetypes)
   :flatten()
   :fold({}, function(tbl, v)
-    tbl[v] = true
+    tbl[v] = vim.tbl_contains(ts_installed, v)
     return tbl
   end)
+
+local ts_enable = function(buffer, lang)
+  local ok, hl = pcall(ts.query.get, lang, 'highlights')
+  if ok and hl then
+    ts.start(buffer, lang)
+  end
+end
 
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'enable treesitter',
   callback = function(event)
     local ft = event.match
-    if ts_filetypes[ft] == nil then
+    local available = ts_filetypes[ft]
+    if available == nil then
       return
     end
 
     local lang = ts.language.get_lang(ft)
-    local ok, hl = pcall(ts.query.get, lang, 'highlights')
+    local buffer = event.buf
 
-    if ok and hl then
-      ts.start(event.buf, lang)
+    if available then
+      ts_enable(buffer, lang)
+      return
     end
+
+    require('nvim-treesitter').install(lang):await(function()
+      ts_filetypes[ft] = true
+      ts_enable(buffer, lang)
+    end)
   end,
 })
 
