@@ -109,7 +109,6 @@ MiniDeps.setup({
 })
 
 MiniDeps.add('folke/tokyonight.nvim')
-MiniDeps.add('folke/snacks.nvim')
 MiniDeps.add('akinsho/bufferline.nvim')
 MiniDeps.add('tpope/vim-repeat')
 
@@ -121,6 +120,10 @@ MiniDeps.add({
 MiniDeps.add({
   source = 'nvim-treesitter/nvim-treesitter',
   checkout = 'v0.10.0',
+})
+MiniDeps.add({
+  source = 'folke/snacks.nvim',
+  checkout = 'v2.27.0',
 })
 
 -- ========================================================================== --
