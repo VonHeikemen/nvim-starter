@@ -9,7 +9,7 @@ Autocompletion and "code intellisense" is provided by the LSP client built into 
 * gopls
 * rust-analyzer
 
-To understand more about this configuration you read these resources:
+To understand more about this configuration you can read these resources:
 
 * [Build your first Neovim configuration in lua](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 * [Neovim: Plugins to get started](https://vonheikemen.github.io/devlog/tools/neovim-plugins-to-get-started/)
@@ -112,6 +112,7 @@ Leader key: `Space`.
 | [mason-lspconfig.nvim](https://github.com/mason-org/mason.nvim)       | mason.nvim extension. Provides the command `:LspInstall`.             |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)            | Quickstart configurations for various language servers.               |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Provides easy access to treesitter parsers and queries.               |
+| [ts-enable.nvim](https://github.com/VonHeikemen/ts-enable.nvim)       | Enable treesitter based features.                                     |
 | [vim-repeat](https://github.com/tpope/vim-repeat)                     | Add "repeat" support for plugins.                                     |
 | [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  | Collection of custom snippets for many programming languages.         |
 
