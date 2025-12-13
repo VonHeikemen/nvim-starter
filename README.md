@@ -109,6 +109,7 @@ Leader key: `Space`.
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)         | Pretty tabline.                                                       |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)            | Quickstart configurations for various language servers.               |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Provides easy access to treesitter parsers and queries.               |
+| [ts-enable.nvim](https://github.com/VonHeikemen/ts-enable.nvim)       | Enable treesitter based features.                                     |
 | [vim-repeat](https://github.com/tpope/vim-repeat)                     | Add "repeat" support for plugins.                                     |
 | [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  | Collection of custom snippets for many programming languages.         |
 
