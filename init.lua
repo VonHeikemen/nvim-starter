@@ -279,20 +279,6 @@ Snacks.setup({
       file = {truncate = 78},
     },
   },
-  bigfile = {
-    -- Only use `bigfile` module on older Neovim versions
-    enabled = vim.fn.has('nvim-0.11') == 0,
-    notify = false,
-    size = 1024 * 1024, -- 1MB
-    setup = function(ctx)
-      vim.cmd('syntax clear')
-      vim.opt_local.syntax = 'OFF'
-      local buffer = vim.b[ctx.buf]
-      if buffer.ts_highlight then
-        vim.treesitter.stop(ctx.buf)
-      end
-    end
-  },
 })
 
 -- docs: https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
