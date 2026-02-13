@@ -132,7 +132,7 @@ MiniDeps.add({
 MiniDeps.add({
   source = 'saghen/blink.cmp',
   depends = {'rafamadriz/friendly-snippets'},
-  checkout = 'v1.7.0',
+  checkout = 'v1.9.1',
 })
 
 
