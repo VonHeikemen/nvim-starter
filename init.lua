@@ -128,12 +128,12 @@ MiniDeps.add({
   checkout = nvim_10 and mini.branch or mini.revision,
 })
 MiniDeps.add({
-  source = 'nvim-treesitter/nvim-treesitter',
-  checkout = 'v0.10.0',
-})
-MiniDeps.add({
   source = 'folke/snacks.nvim',
   checkout = 'v2.27.0',
+})
+MiniDeps.add({
+  source = 'VonHeikemen/ts-enable.nvim',
+  checkout = 'v2.x',
 })
 
 -- ========================================================================== --
@@ -239,18 +239,12 @@ require('bufferline').setup({
 
 vim.keymap.set('n', 'gt', '<cmd>BufferLinePick<cr>', {desc = 'Pick a visible tab'})
 
--- See :help nvim-treesitter-modules
-require('nvim-treesitter.configs').setup({
+-- See :help ts-enable-config
+vim.g.ts_enable = {
+  auto_init = true,
   auto_install = true,
-  highlight = {
-    enable = true,
-  },
-  ensure_installed = {
-    'lua',
-    'vim',
-    'vimdoc',
-  },
-})
+  highlights = true
+}
 
 -- docs: https://github.com/folke/snacks.nvim/blob/main/README.md
 local Snacks = require('snacks')

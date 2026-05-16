@@ -75,7 +75,6 @@ Leader key: `Space`.
 | [mini.nvim](https://github.com/nvim-mini/mini.nvim)                                           | Collection of independent lua modules that enhance Neovim's features. |
 | [snacks.nvim](https://github.com/folke/snacks.nvim)                                           | Collection of QoL plugins.                                            |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)                                 | Pretty tabline.                                                       |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)                         | Configures treesitter parsers. Provides modules to manipulate code.   |
-| [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | Creates textobjects based on treesitter queries.                      |
+| [ts-enable.nvim](https://github.com/VonHeikemen/ts-enable.nvim)                               | Enable treesitter based features.                                     |
 | [vim-repeat](https://github.com/tpope/vim-repeat)                                             | Add "repeat" support for plugins.                                     |
 
