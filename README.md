@@ -45,7 +45,7 @@ To understand more about this configuration you can read these resources:
 
   > Do not execute this command as is. Replace `/tmp/nvim-config-path` with the correct path from the previous step.
 
-* Next time you start Neovim all plugins will be downloaded automatically. After this process is done `nvim-treesitter` will install language parsers for treesitter. And, `mason.nvim` will download language servers listed in the configuration. Use the command `:Mason` to check the download process of language servers.
+* Next time you start Neovim all plugins will be downloaded automatically. After this process is done `mason.nvim` will download language servers listed in the configuration. Use the command `:Mason` to check the download process of language servers.
 
 ## Keybindings
 
@@ -111,7 +111,6 @@ Leader key: `Space`.
 | [mason.nvim](https://github.com/mason-org/mason.nvim)                 | Installer for external tools.                                         |
 | [mason-lspconfig.nvim](https://github.com/mason-org/mason.nvim)       | mason.nvim extension. Provides the command `:LspInstall`.             |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)            | Quickstart configurations for various language servers.               |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Provides easy access to treesitter parsers and queries.               |
 | [ts-enable.nvim](https://github.com/VonHeikemen/ts-enable.nvim)       | Enable treesitter based features.                                     |
 | [vim-repeat](https://github.com/tpope/vim-repeat)                     | Add "repeat" support for plugins.                                     |
 | [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)  | Collection of custom snippets for many programming languages.         |
