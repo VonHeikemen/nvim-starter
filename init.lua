@@ -112,7 +112,6 @@ MiniDeps.add('folke/tokyonight.nvim')
 MiniDeps.add('folke/snacks.nvim')
 MiniDeps.add('akinsho/bufferline.nvim')
 MiniDeps.add('tpope/vim-repeat')
-MiniDeps.add('VonHeikemen/ts-enable.nvim')
 MiniDeps.add('neovim/nvim-lspconfig')
 MiniDeps.add('mason-org/mason.nvim')
 MiniDeps.add('mason-org/mason-lspconfig.nvim')
@@ -123,18 +122,13 @@ MiniDeps.add({
   checkout = mini.branch,
 })
 MiniDeps.add({
-  source = 'nvim-treesitter/nvim-treesitter',
-  checkout = 'main',
-  hooks = {
-    post_checkout = function()
-      vim.cmd.TSUpdate()
-    end,
-  },
-})
-MiniDeps.add({
   source = 'saghen/blink.cmp',
   depends = {'rafamadriz/friendly-snippets'},
   checkout = 'v1.9.1',
+})
+MiniDeps.add({
+  source = 'VonHeikemen/ts-enable.nvim',
+  checkout = 'v2.x',
 })
 
 
@@ -244,13 +238,9 @@ require('bufferline').setup({
 
 vim.keymap.set('n', 'gt', '<cmd>BufferLinePick<cr>', {desc = 'Pick a visible tab'})
 
--- NOTE: the list of supported parsers is in the documentation
--- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
-local ts_parsers = {'lua', 'vim', 'vimdoc'}
-
 -- See :help ts-enable-config
 vim.g.ts_enable = {
-  parsers = ts_parsers,
+  auto_init = true,
   auto_install = true,
   highlights = true,
 }
